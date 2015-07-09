@@ -1,5 +1,5 @@
 # Vimrc
-This repository has only one purpose, to share a vim terminal configuration between multiple machines and perhaps to serve as an example config for others.
+This repository has only one purpose, to share a vim terminal configuration between multiple machines and perhaps to serve as an example config for others. This repo represents my ~/.vim directory together with the config file.
 
 I used [pathogen](https://github.com/tpope/vim-pathogen) as a plugin manager. 
 
