@@ -3,6 +3,12 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 set number
+
+" Size of an 'indent'
+set shiftwidth=4
+" Always use spaces instead of tabs
+set expandtab
+
 " Let VIM use 256 colors and pick a colorscheme
 set t_Co=256
 colorscheme beauty256
