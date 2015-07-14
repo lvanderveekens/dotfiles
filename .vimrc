@@ -4,6 +4,8 @@ syntax on
 filetype plugin indent on
 set number
 
+" Use the mouse to move the cursor
+set mouse=a
 " Size of an 'indent'
 set shiftwidth=4
 " Always use spaces instead of tabs
