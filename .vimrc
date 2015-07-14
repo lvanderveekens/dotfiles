@@ -20,3 +20,6 @@ set laststatus=2
 
 " Use the powerline fonts
 let g:airline_powerline_fonts=1
+
+" Toggle nerd tree plugin
+map <C-n> :NERDTreeToggle<CR>

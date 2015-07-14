@@ -7,6 +7,7 @@ I used [pathogen](https://github.com/tpope/vim-pathogen) as a plugin manager.
 
 * [vim-airline](https://github.com/bling/vim-airline)
 * [vim-colorschemes](https://github.com/flazz/vim-colorschemes): for specific colorschemes you'll need a 256 bit colored terminal, like the gnome-terminal.
+* [nerdtree](https://github.com/scrooloose/nerdtree)
 
 ### Fonts
 
