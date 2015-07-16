@@ -1,6 +1,6 @@
-# Vimrc
-This repository has only one purpose, to share a vim terminal configuration between multiple machines and perhaps to serve as an example config for others. This repo represents my ~/.vim directory together with the config file.
+This repository has the purpose of sharing configuration files between multiple machines and perhaps to serve as default config files for interested 3rd parties. 
 
+# Vim
 I used [pathogen](https://github.com/tpope/vim-pathogen) as a plugin manager. 
 
 ### Plugins 
@@ -12,3 +12,7 @@ I used [pathogen](https://github.com/tpope/vim-pathogen) as a plugin manager.
 ### Fonts
 
 * [powerline](https://github.com/powerline/fonts)
+
+# Tmux
+
+TODO
