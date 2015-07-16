@@ -1,4 +1,4 @@
-This repository has the purpose of sharing configuration files between multiple machines and perhaps to serve as default config files for interested 3rd parties. 
+This repository has the purpose of sharing configuration files between multiple machines. 
 
 # Vim
 I used [pathogen](https://github.com/tpope/vim-pathogen) as a plugin manager. 
