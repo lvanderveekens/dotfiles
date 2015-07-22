@@ -13,7 +13,7 @@ set expandtab
 
 " Let VIM use 256 colors and pick a colorscheme
 set t_Co=256
-colorscheme beauty256
+colorscheme devbox-dark-256
 
 " Allow status bar to always show.
 set laststatus=2
