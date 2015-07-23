@@ -1,24 +1,33 @@
 execute pathogen#infect()
 
-syntax on
+syntax enable
 filetype plugin indent on
 set number
 
-" Use the mouse to move the cursor
+" use the mouse to move the cursor
 set mouse=a
-" Size of an 'indent'
+" size of an 'indent'
 set shiftwidth=4
-" Always use spaces instead of tabs
+" always use spaces instead of tabs, one tab is four spaces
 set expandtab
+set tabstop=4
 
-" Let VIM use 256 colors and pick a colorscheme
+" use 256 colors
 set t_Co=256
+let g:solarized_termcolors=256
+set background=light
+colorscheme solarized
 
-" Allow status bar to always show.
+" allow status bar to always show.
 set laststatus=2
 
-" Use the powerline fonts
+" use the powerline fonts
 let g:airline_powerline_fonts=1
 
-" Toggle nerd tree plugin
+" insert a snippet
+let g:UltiSnipsExpandTrigger="<tab>"
+
+let delimitMate_expand_cr=1
+
+" toggle nerd tree plugin
 map <C-n> :NERDTreeToggle<CR>
