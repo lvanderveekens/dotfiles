@@ -8,9 +8,10 @@ I used [pathogen](https://github.com/tpope/vim-pathogen) as a plugin manager.
 * [vim-airline](https://github.com/bling/vim-airline)
 * [vim-colorschemes](https://github.com/flazz/vim-colorschemes): for specific colorschemes you'll need a 256 bit colored terminal, like the gnome-terminal.
 * [nerdtree](https://github.com/scrooloose/nerdtree)
-* indentLine, displaying indentation blocks more clearly.
-* ultisnips/vim-snippets, a wide range of snippets for different programming languages.
-* delimitMate, for automatically inserting closing brackets.
+* [indentLine](https://github.com/Yggdroot/indentLine), displaying indentation blocks more clearly.
+* [vim-snippets](https://github.com/honza/vim-snippets), a wide range of snippets for different programming languages.
+* [relimitMate](https://github.com/Raimondi/delimitMate), for automatically inserting closing brackets.
+* [matchit](https://github.com/tmhedberg/matchit), to jump between opening and closing attributes (xml).
 
 ### Fonts
 
