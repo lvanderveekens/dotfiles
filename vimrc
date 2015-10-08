@@ -13,14 +13,14 @@ set expandtab
 " one tab is four spaces
 set tabstop=4
 " use 256 colors
-set t_Co=256
-let g:solarized_termcolors=256
+" set t_Co=256
+" let g:solarized_termcolors=256
 set background=dark
-colorscheme solarized
+" colorscheme solarized
  
 "
 " airline plugin
-let g:airline_powerline_fonts=1
+" let g:airline_powerline_fonts=1
 let g:airline_theme="sol"
 
 " insert a snippet
