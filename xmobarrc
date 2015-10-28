@@ -38,4 +38,4 @@ Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
        ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%cpu% | %memory% | %swap% | Volume: %volume% } { <fc=#ee9a00>%date%</fc> | %EHAM% | %uname% | %battery%"} 
+       , template = "%cpu% | %memory% | %swap% | Volume: %volume% } { <fc=#ee9a00>%date%</fc> | %EHAM% | %battery% | %uname%"} 
