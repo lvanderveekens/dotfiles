@@ -20,3 +20,12 @@ I used [pathogen](https://github.com/tpope/vim-pathogen) as a plugin manager.
 # Tmux
 
 TODO
+
+
+# XMonad
+
+TODO
+
+## mobar
+
+TODO
