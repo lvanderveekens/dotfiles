@@ -2,6 +2,10 @@ execute pathogen#infect()
 
 syntax enable
 filetype plugin indent on
+
+" set cursorline
+" hi CursorLine cterm=NONE ctermbg=NONE ctermfg=white
+
 set number
 " allow status bar to always show.
 set laststatus=2
@@ -12,11 +16,12 @@ set mouse=a
 set expandtab
 " one tab is four spaces
 set tabstop=4
+
 " use 256 colors
 " set t_Co=256
 " let g:solarized_termcolors=256
-set background=dark
-" colorscheme solarized
+" colorscheme desert
+" set background=dark
  
 "
 " airline plugin
