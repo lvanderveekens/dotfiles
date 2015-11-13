@@ -8,4 +8,5 @@ else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w $ '
 fi
 
-alias log='svn log | awk "{sub(\"luciano\",\"\033[01;32mluciano\033[00m\"); print}" | less -R'
+alias svnlog='svn log | awk "{sub(\"luciano\",\"\033[01;32mluciano\033[00m\"); print}" | less -R'
+alias svndiff='svn diff | colordiff | awk "{gsub(\"\r\",\"\"); print}" | less -R'
