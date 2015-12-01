@@ -8,14 +8,14 @@ else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w $ '
 fi
 
-function svnlog() {
+log() {
     svn log "$@" | awk '{sub("luciano","\033[01;32mluciano\033[00m"); print}' | less -R
 }
 
-function svnblame() {
+blame() {
     svn blame "$@" | less
 }
 
-function svndiff() {
+diff() {
     svn diff "$@" | colordiff | awk '{gsub("\r",""); print}' | less -R
 }
