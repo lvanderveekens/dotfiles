@@ -6,7 +6,7 @@ filetype plugin indent on
 " set cursorline
 " hi CursorLine cterm=NONE ctermbg=NONE ctermfg=white
 
-set number
+"set number
 " allow status bar to always show.
 set laststatus=2
 
@@ -16,6 +16,9 @@ set mouse=a
 set expandtab
 " one tab is four spaces
 set tabstop=4
+
+" ignore case during search
+set ic
 
 " use 256 colors
 " set t_Co=256
