@@ -21,14 +21,14 @@ set tabstop=4
 set ic
 
 " use 256 colors
-" set t_Co=256
-" let g:solarized_termcolors=256
-" colorscheme desert
-" set background=dark
+set t_Co=256
+"let g:solarized_termcolors=256
+colorscheme laederon
+set background=light
  
 "
 " airline plugin
-" let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts=1
 let g:airline_theme="sol"
 
 " insert a snippet
