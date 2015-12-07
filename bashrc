@@ -19,7 +19,7 @@ elif [ "$color_prompt" = yes ]; then
     ORANGE='\033[38;5;202m'
 
     DIR='$(if [ -n "$(get_branch_and_dir)" ]; then echo -e "$(get_branch_and_dir)"; else echo -e "$DEFAULT\w"; fi)'
-    PS1=$GREEN'\u '$DEFAULT$DIR'\n'$ORANGE'╰'$DEFAULT' '
+    PS1=$ORANGE'┌'$GREEN' \u '$DEFAULT$DIR'\n'$ORANGE'└'$DEFAULT' '
     
 else 
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w $ '
