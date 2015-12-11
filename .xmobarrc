@@ -1,9 +1,5 @@
-<<<<<<< HEAD:xmobarrc
 Config { font = "eft:DejaVu Sans Mono:style=Book:size=12"
        , additionalFonts = []
-=======
-Config { font = "xft:DejaVu Sans Mono:size=9:bold"
->>>>>>> d3647a033d50ae10ba003b48cc18b9779df3007c:.xmobarrc
        , borderColor = "black"
        , border = TopB
        , bgColor = "black"
