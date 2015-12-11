@@ -26,7 +26,7 @@ Config { font = "eft:DejaVu Sans Mono:style=Book:size=12"
                                    , "--"
                                    , "-O", "<fc=yellow>CHARGING <left>%</fc>", "-o", "<fc=purple>bat <left>%</fc>"
                                    ] 10
-                    , Run Com "/home/lvdveekens/code/config/getVolume.sh" [] "volume" 10
+                    , Run Com "/home/luciano/code/config/getVolume.sh" [] "volume" 10
        ]
        , sepChar = "%"
        , alignSep = "}{"
