@@ -8,9 +8,9 @@ alias startw='VBoxManage startvm Windows7 --type headless'
 WORK="$HOME/code/amm/trunk"
 
 # ANSI color codes
-GREEN='\e[01;32m'
-DEFAULT='\e[00m'
-ORANGE='\e[38;5;202m'
+GREEN='\[\e[01;32m\]'
+DEFAULT='\[\e[00m\]'
+ORANGE='\[\e[38;5;202m\]'
 export BOLD='\e[1;1m'
 export NO_COLOR='\e[00m'
 
@@ -18,7 +18,7 @@ if ps $PPID | grep mc; then
     PS1='[mc] \u@\h:\w $ '
 elif [ "$color_prompt" = yes ]; then
 
-    DIR='$(if [ -n "$(get_branch_and_dir)" ]; then echo -e "$(get_branch_and_dir)"; else echo -e "$DEFAULT\w"; fi)'
+    DIR='$(if [ -n "$(get_branch_and_dir)" ]; then echo -e "$(get_branch_and_dir)"; else echo -e "\e[00m\w"; fi)'
     PS1=$ORANGE'┌'$GREEN' \u '$DEFAULT$DIR'\n'$ORANGE'└'$DEFAULT' '
 else 
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w $ '

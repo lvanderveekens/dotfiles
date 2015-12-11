@@ -1,4 +1,4 @@
-Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
+Config { font = "eft:DejaVu Sans Mono:style=Book:size=12"
        , additionalFonts = []
        , borderColor = "black"
        , border = TopB
@@ -15,27 +15,22 @@ Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
        , iconRoot = "."
        , allDesktops = True
        , overrideRedirect = True
-       , commands = [ Run Weather "EHAM" ["-t","Amsterdam: <tempC>C",
-                                          "-L","18","-H","25",
-                                          "--normal","green",
-                                          "--high","red",
-                                          "--low","lightblue"] 36000
+       , commands = [ Run Weather "EHAM" ["-t","<fc=#ee9a00>weather: <tempC>C</fc>"] 36000
                     -- , Run Network "wlan0" ["-L","0","-H","32",
                     --                       "--normal","green","--high","red"] 10
-                    , Run Cpu ["-L","3","-H","50",
+                    , Run Cpu ["-t", "<fc=#ee9a00>cpu <total>%</fc>", "-L","10","-H","60",
                                "--normal","green","--high","red"] 10
-                    , Run Memory ["-t","Mem: <usedratio>%"] 10
-                    , Run Swap [] 10
+                    , Run Memory ["-t","<fc=yellow>mem <usedratio>%</fc>"] 10
+                    , Run Swap ["-t","<fc=green>swap <usedratio>%</fc>"] 10
                     , Run Com "uname" ["-n"] "" 36000
-                    , Run Date "%a %b %d %H:%M" "date" 10 
+                    , Run Date "<fc=#ee9a00>%a %b %d %H:%M</fc>" "date" 10 
                     , Run BatteryP ["BAT0"]
-                                   ["-t", "<acstatus>"
-                                   , "-L", "10", "-H", "80"
-                                   , "-l", "red", "-h", "green"
-                                   , "--", "-O", "Charging", "-o", "Battery: <left>%"
+                                   [ "-t", "<acstatus>" 
+                                   , "--"
+                                   , "-O", "<fc=yellow>CHARGING <left>%</fc>", "-o", "<fc=purple>bat <left>%</fc>"
                                    ] 10
                     , Run Com "/home/luciano/.xmonad/getVolume.bash" [] "volume" 10
        ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%cpu% | %memory% | %swap% | Volume: %volume% } { <fc=#ee9a00>%date%</fc> | %EHAM% | %battery% | %uname%"} 
+       , template = "}{ %cpu% | %memory% | %swap% | <fc=red>%volume%</fc> | %battery% | %date%, %EHAM% - %uname%"} 

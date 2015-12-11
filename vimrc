@@ -6,7 +6,7 @@ filetype plugin indent on
 " set cursorline
 " hi CursorLine cterm=NONE ctermbg=NONE ctermfg=white
 
-"set number
+set number
 " allow status bar to always show.
 set laststatus=2
 
@@ -23,7 +23,7 @@ set ic
 " use 256 colors
 set t_Co=256
 "let g:solarized_termcolors=256
-colorscheme laederon
+"colorscheme laederon
 set background=light
  
 "

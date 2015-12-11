@@ -10,8 +10,13 @@ main = xmonad =<< myBar myConfig
 myBar = xmobar
 
 myConfig = defaultConfig { 
-    terminal = "gnome-terminal"
+      workspaces = myWorkspaces
+    , terminal = myTerminal
     } `additionalKeys` myKeys
+
+myTerminal = "gnome-terminal"
+
+myWorkspaces = [ "1:main", "2: web", "3:vim"]
 
 myKeys = [ 
      -- volume up 
