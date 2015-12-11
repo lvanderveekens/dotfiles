@@ -1,0 +1,3 @@
+xterm*faceName:        DejaVu Sans Mono:style=Book:size=11
+xterm*scrollBar:       false
+xterm*saveLines:       9999

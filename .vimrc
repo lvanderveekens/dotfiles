@@ -6,13 +6,13 @@ filetype plugin indent on
 " set cursorline
 " hi CursorLine cterm=NONE ctermbg=NONE ctermfg=white
 
+set relativenumber
 set number
 " allow status bar to always show.
 set laststatus=2
 
 " use the mouse to move the cursor
-set mouse=a
-" always use spaces instead of tabs
+set mouse=a " always use spaces instead of tabs
 set expandtab
 " one tab is four spaces
 set tabstop=4
@@ -23,10 +23,8 @@ set ic
 " use 256 colors
 set t_Co=256
 "let g:solarized_termcolors=256
-"colorscheme laederon
 set background=light
  
-"
 " airline plugin
 let g:airline_powerline_fonts=1
 let g:airline_theme="sol"
@@ -45,3 +43,4 @@ let g:indentLine_char='|'
 
 " toggle nerd tree plugin
 map <C-n> :NERDTreeToggle<CR>
+
