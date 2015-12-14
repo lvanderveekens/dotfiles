@@ -11,7 +11,7 @@ ORANGE='\[\e[38;5;202m\]'
 
 if [ "$color_prompt" = yes ]; then
     W='$(if [ -n "$(get_branch_and_dir)" ]; then echo -e "$(get_branch_and_dir)"; else echo "\e[00m\w"; fi)'
-    PS1=$ORANGE'┌'$GREEN' \u '$DEFAULT$W'\n'$ORANGE'└'$DEFAULT' '
+    PS1=$ORANGE'┌[\h]'$GREEN' \u '$DEFAULT$W'\n'$ORANGE'└'$DEFAULT' '
 else 
     PS1='\u@\h:\w $ '
 fi
@@ -45,14 +45,9 @@ get_branch_and_dir() {
     awk '{ sub("branches/",""); 
            sub("\\^/",""); 
            sub("/"," "); 
-           sub("/"," "); 
-           printf "%s[%s]%s %s(%s) %s", "\033[1;1m" ,$3, "\033[00m", "\033[1;1m", $4, "\033[00m";
-           for (i=5; i<=NF;i++) { 
-               if (i==5) {
-                   printf "/"$i
-               } else {
-                   printf " "$i" "
-               }
+           printf "%s[%s]%s", "\033[1;1m" ,$3, "\033[00m";
+           for (i=4; i<=NF;i++) { 
+               printf " "$i" "
            } 
        }'
 }
