@@ -43,4 +43,10 @@ let g:indentLine_char='|'
 
 " toggle nerd tree plugin
 map <C-n> :NERDTreeToggle<CR>
+map <C-r> :call RunHaskell()<CR>
 
+function! RunHaskell()
+    w
+    !ghc --make -outputdir bin -o out %
+    !./out 
+endfunction

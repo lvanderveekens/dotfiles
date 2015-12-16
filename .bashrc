@@ -11,7 +11,7 @@ ORANGE='\[\e[38;5;202m\]'
 
 if [ "$color_prompt" = yes ]; then
     W='$(if [ -n "$(get_branch_and_dir)" ]; then echo -e "$(get_branch_and_dir)"; else echo "\e[00m\w"; fi)'
-    PS1=$ORANGE'┌[\h]'$GREEN' \u '$DEFAULT$W'\n'$ORANGE'└'$DEFAULT' '
+    PS1=$DEFAULT'┌[\h]'$GREEN' \u '$DEFAULT$W'\n'$DEFAULT'└ '
 else 
     PS1='\u@\h:\w $ '
 fi
@@ -19,8 +19,8 @@ fi
 ### FUNCTIONS
 log() {
     svn log "$@" | 
-    awk '{ if ($3 == "luciano")  {
-               printf "%s%s%s\n", "\033[1;1m", $0, "\033[00m"
+    awk '{ if ($1 ~ /r[0-9]{5}/)  {
+               printf "%s%s%s\n", "\033[38;5;220m", $0, "\033[00m"
            } else {
                print $0
            }
@@ -45,7 +45,7 @@ get_branch_and_dir() {
     awk '{ sub("branches/",""); 
            sub("\\^/",""); 
            sub("/"," "); 
-           printf "%s[%s]%s", "\033[1;1m" ,$3, "\033[00m";
+           printf "%s(%s)%s", "\033[1;38;5;256;48;5;9m" ,$3, "\033[00m";
            for (i=4; i<=NF;i++) { 
                printf " "$i" "
            } 
