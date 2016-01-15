@@ -1,8 +1,7 @@
-# my bashrc containing aliases and environment variables
+# my bashrc 
 
 ### ALIASES
 alias b='mvn clean install'
-alias ncc="$HOME/code/amm/trunk/clients/ncc/application/runNccClient_luciano.sh"
 alias tmux='tmux -2'
 alias sshserver='ssh oracle@server'
 
@@ -23,21 +22,12 @@ function log() {
     }' | less -R
 }
 
-function logedit() {
+function editlog() {
     svn propedit "$@" --revprop svn:log .
-}
-
-function blame() {
-    svn blame "$@" | less
 }
 
 function diff() {
     svn diff "$@" | colordiff | awk '{gsub("\r",""); print}' | less -R
-}
-
-function add() {
-    files=$(svn st | grep ? | awk '{ print $2; }')
-    svn add $files
 }
 
 function get_branch() {
