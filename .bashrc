@@ -39,13 +39,10 @@ function diff() {
 function get_branch() {
     branch=$(svn info 2> /dev/null | grep "Relative URL" | awk '{ sub("branches/",""); sub("\\^/","");  sub("/"," "); printf "(%s)", $3; }')
     if [[ -n $branch ]]; then
-    #    DEFAULT='\001\e[00m\002'
-    #    RED='\001\e[01;31m\002'
-    #    GREEN='\001\e[01;32m\002'
         # is there anything to commit?
         if [[ -n $(svn st 2> /dev/null) ]]; then
             # paint the branch RED
-            printf '\001\033[01;31m\002'$branch'\001\033[00m\002';
+            printf $RED$branch$DEFAULT;
         else 
             # otherwise GREEN
             printf $GREEN$branch$DEFAULT;
