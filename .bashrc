@@ -5,6 +5,12 @@ alias b='mvn clean install'
 alias tmux='tmux -2'
 alias sshserver='ssh oracle@server'
 
+# COLORS
+DEFAULT='\001\e[00m\002'
+RED='\001\e[01;31m\002'
+GREEN='\001\e[01;32m\002'
+YELLOW='\001\e[01;33m\002'
+
 ### FUNCTIONS
 function log() {
     svn log "$@" | 
@@ -23,7 +29,7 @@ function log() {
 }
 
 function editlog() {
-    svn propedit "$@" --revprop svn:log .
+    svn propedit -r "$1" --revprop svn:log .
 }
 
 function diff() {
@@ -33,27 +39,23 @@ function diff() {
 function get_branch() {
     branch=$(svn info 2> /dev/null | grep "Relative URL" | awk '{ sub("branches/",""); sub("\\^/","");  sub("/"," "); printf "(%s)", $3; }')
     if [[ -n $branch ]]; then
+    #    DEFAULT='\001\e[00m\002'
+    #    RED='\001\e[01;31m\002'
+    #    GREEN='\001\e[01;32m\002'
         # is there anything to commit?
         if [[ -n $(svn st 2> /dev/null) ]]; then
             # paint the branch RED
-            echo $RED$branch$DEFAULT;
+            printf '\001\033[01;31m\002'$branch'\001\033[00m\002';
         else 
             # otherwise GREEN
-            echo $GREEN$branch$DEFAULT;
+            printf $GREEN$branch$DEFAULT;
         fi
     fi
 }
 
-# COLORS
-RED='\e[01;31m'
-YELLOW='\e[01;33m'
-GREEN='\e[01;32m'
-DEFAULT='\e[00m'
-ORANGE='\e[38;5;202m'
-
 if [ "$color_prompt" = yes ]; then
-    W='$(svn=$(get_branch); if [ -n "$svn" ]; then echo -e "$svn \w"; else echo -e $DEFAULT"\w"; fi)'
-    PS1=$YELLOW'\u '$W' ▶ '
+    W='$(svn=$(get_branch); if [ -n "$svn" ]; then printf "$svn \w"; else printf "\w"; fi)'
+    PS1=$YELLOW'\u '$DEFAULT$W' ▶ '
 else 
     PS1='\u@\h:\w $ '
 fi
