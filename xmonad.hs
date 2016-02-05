@@ -11,7 +11,7 @@ main = xmonad =<< myBar myConfig
 myBar = xmobar
 
 myConfig = defaultConfig { terminal = "xterm" 
-                         , modMask = mod4Mask
+                         , modMask = mod1Mask
                          , startupHook = setWMName "LG3D" } -- LG3D for java to recognize as a valid WM  
            `additionalKeys` myKeys
 

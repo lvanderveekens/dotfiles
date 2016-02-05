@@ -1,3 +1,5 @@
-xterm*faceName:        DejaVu Sans Mono:style=Book:size=11
+xterm*faceName:        DejaVu Sans Mono for Powerline:size=9
 xterm*scrollBar:       false
 xterm*saveLines:       9999
+xterm*background:      black
+xterm*foreground:      white

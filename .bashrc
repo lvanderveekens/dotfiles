@@ -10,6 +10,7 @@ DEFAULT='\001\e[00m\002'
 RED='\001\e[01;31m\002'
 GREEN='\001\e[01;32m\002'
 YELLOW='\001\e[01;33m\002'
+UNDERLINED='\001\e[01;04m\002'
 
 ### FUNCTIONS
 function log() {
@@ -37,22 +38,36 @@ function diff() {
 }
 
 function get_branch() {
-    branch=$(svn info 2> /dev/null | grep "Relative URL" | awk '{ sub("branches/",""); sub("\\^/","");  sub("/"," "); printf "(%s)", $3; }')
-    if [[ -n $branch ]]; then
+    branch=$(svn info 2> /dev/null | grep "Relative URL" | awk '{ sub("branches/",""); sub("\\^/","");  sub("/"," "); printf "%s", $3; }')
+    print_with_color $branch 
+}
+
+function print_with_color() {
+    if [[ -n $1 ]]; then
+        changes=$(svn st | wc -l 2> /dev/null)
         # is there anything to commit?
-        if [[ -n $(svn st 2> /dev/null) ]]; then
+        if [[ $changes > 0 ]]; then
             # paint the branch RED
-            printf $RED$branch$DEFAULT;
+            if [[ $changes == 1 ]]; then
+                printf "%s{%s ~ %s change}%s" $RED $1 $changes $DEFAULT;
+            else 
+                printf "%s{%s ~ %s changes}%s" $RED $1 $changes $DEFAULT;
+            fi
         else 
             # otherwise GREEN
-            printf $GREEN$branch$DEFAULT;
+            printf "%s{%s}%s" $GREEN $1 $DEFAULT;
         fi
     fi
 }
 
+function get_revision() {
+revision=$(svn info 2> /dev/null | grep "Revision: " | awk '{ printf "r%s", $2; }')
+    print_with_color $revision
+}
+
 if [ "$color_prompt" = yes ]; then
-    W='$(svn=$(get_branch); if [ -n "$svn" ]; then printf "$svn \w"; else printf "\w"; fi)'
-    PS1=$YELLOW'\u '$DEFAULT$W' ▶ '
+    W='$(svn=$(get_revision); if [ -n "$svn" ]; then printf "$svn \w"; else printf "\w"; fi)'
+    PS1=$UNDERLINED'\h'$DEFAULT' '$YELLOW'\u '$DEFAULT$W' ▶▶ '
 else 
     PS1='\u@\h:\w $ '
 fi

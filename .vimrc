@@ -24,10 +24,12 @@ set ic
 set t_Co=256
 "let g:solarized_termcolors=256
 set background=light
+
+colorscheme devbox-dark-256
  
 " airline plugin
 let g:airline_powerline_fonts=1
-let g:airline_theme="sol"
+"let g:airline_theme="sol"
 
 " insert a snippet
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -43,10 +45,13 @@ let g:indentLine_char='|'
 
 " toggle nerd tree plugin
 map <C-n> :NERDTreeToggle<CR>
-map <C-r> :call RunHaskell()<CR>
+map <C-a> :call RunHaskell()<CR>
 
 function! RunHaskell()
     w
     !ghc --make -outputdir bin -o out %
     !./out 
 endfunction
+
+" turn off omni sql auto complete 
+let g:omni_sql_no_default_maps=1
