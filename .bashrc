@@ -3,7 +3,6 @@
 ### ALIASES
 alias b='mvn clean install'
 alias tmux='tmux -2'
-alias sshserver='ssh oracle@server'
 
 # COLORS
 DEFAULT='\001\e[00m\002'
@@ -22,10 +21,9 @@ function log() {
         } else {
         printf "%s%s%s\n", "\033[38;5;220m", $0, "\033[00m" 
         }
-    } else if ($1 ~ /NTS-/) {
-        print "    "$0
-    } else
+    } else {
         print $0
+    }
     }' | less -R
 }
 
@@ -48,26 +46,21 @@ function print_with_color() {
         # is there anything to commit?
         if [[ $changes > 0 ]]; then
             # paint the branch RED
-            if [[ $changes == 1 ]]; then
-                printf "%s{%s ~ %s change}%s" $RED $1 $changes $DEFAULT;
-            else 
-                printf "%s{%s ~ %s changes}%s" $RED $1 $changes $DEFAULT;
-            fi
+            printf "%s(%s ~ %s)%s" $RED $1 $changes $DEFAULT;
         else 
             # otherwise GREEN
-            printf "%s{%s}%s" $GREEN $1 $DEFAULT;
+            printf "%s(%s)%s" $GREEN $1 $DEFAULT;
         fi
     fi
 }
 
 function get_revision() {
-revision=$(svn info 2> /dev/null | grep "Revision: " | awk '{ printf "r%s", $2; }')
+    revision=$(svn info 2> /dev/null | grep "Revision: " | awk '{ printf "r%s", $2; }')
     print_with_color $revision
 }
 
-if [ "$color_prompt" = yes ]; then
-    W='$(svn=$(get_revision); if [ -n "$svn" ]; then printf "$svn \w"; else printf "\w"; fi)'
-    PS1=$UNDERLINED'\h'$DEFAULT' '$YELLOW'\u '$DEFAULT$W' ▶▶ '
-else 
-    PS1='\u@\h:\w $ '
-fi
+# set PS1 variable
+W='$(svn=$(get_revision); if [ -n "$svn" ]; then printf "$svn \w"; else printf "\w"; fi)'
+PS1=$YELLOW'\u '$DEFAULT$W' ▶▶ '
+
+export PROMPT_COMMAND="echo -ne '\e]12;#00AFFF\a'"

@@ -6,8 +6,7 @@ filetype plugin indent on
 " set cursorline
 " hi CursorLine cterm=NONE ctermbg=NONE ctermfg=white
 
-set relativenumber
-set number
+"set relativenumber set number
 " allow status bar to always show.
 set laststatus=2
 
