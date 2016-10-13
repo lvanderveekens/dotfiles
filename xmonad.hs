@@ -4,13 +4,10 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.SetWMName
 import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Util.Run(spawnPipe)
+import XMonad.Actions.WorkspaceNames
 import System.IO
 import Graphics.X11.ExtraTypes.XF86
 import Data.Monoid 
-
--- main = do 
-  --  xmproc <- spawnPipe "xmobar"
-   -- xmonad $ defaultConfig
 
 main = do
     xmproc <- spawnPipe "xmobar"
@@ -21,14 +18,22 @@ main = do
         , handleEventHook = mconcat
                           [ docksEventHook
                           , handleEventHook defaultConfig ]
-        , logHook = dynamicLogWithPP xmobarPP
-                        { ppOutput = hPutStrLn xmproc
-                        , ppTitle = xmobarColor "green" "" . shorten 50
-                        }
+        -- the setVMName option causes firefox to fail on a resize
+        -- , startupHook = setWMName "LG3D" 
+        -- fixed it using _JAVA_AWT_WM_NONREPARENTING=1 in ~/.profile
+        , logHook = myLogHook xmproc
         , modMask = mod1Mask     
+        , terminal = "gnome-terminal"
         } `additionalKeys`
         [ ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
+        , ((0                     , xF86XK_AudioRaiseVolume), spawn "amixer set Master 5%+")
+        , ((0                     , xF86XK_AudioLowerVolume), spawn "amixer set Master 5%-")
+        , ((0                     , xF86XK_AudioMute), spawn "amixer set Master toggle")
         , ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s")
         , ((0, xK_Print), spawn "scrot")
         ]
+
+myLogHook dst = dynamicLogWithPP xmobarPP { ppOutput = hPutStrLn dst
+                                          , ppTitle = xmobarColor "green" "" . shorten 50
+                                          }
 
