@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -n "$(amixer get Master | grep off)" ]; then
-    echo "vol off"    
+    echo "Vol: off"    
 else 
-    echo "vol "$(amixer get Master | grep "Front Left:" | awk '{ gsub("\\[|\\]",""); print $5 }')
+    echo "Vol: "$(amixer get Master | grep "Front Left:" | awk '{ gsub("\\[|\\]",""); print $5 }')
 fi
