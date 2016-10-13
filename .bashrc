@@ -3,14 +3,15 @@
 ### ALIASES
 alias b='mvn clean install'
 alias tmux='tmux -2'
-alias sshserver='ssh oracle@server'
+alias sshserver='ssh -X oracle@NWS212'
+alias ll='ls -l'
 
 # COLORS
 DEFAULT='\001\e[00m\002'
-RED='\001\e[01;31m\002'
-GREEN='\001\e[01;32m\002'
+RED='\001\e[01;31m\002' GREEN='\001\e[01;32m\002'
 GREEN_UNDERLINED='\001\e[01;32;04m\002'
 YELLOW='\001\e[01;33m\002'
+BLUE='\001\e[01;34m\002'
 UNDERLINED='\001\e[01;04m\002'
 
 ### FUNCTIONS
@@ -51,7 +52,8 @@ function print_with_color() {
             # otherwise GREEN
             printf "%s" $GREEN;
         fi
-        printf "%s%s" $1 $DEFAULT;
+        # print the revision and set the color back to default
+        printf "(%s)%s" $1 $DEFAULT;
     fi
 }
 
@@ -61,7 +63,7 @@ function get_revision() {
 }
 
 # set PS1 variable
-W='$(svn=$(get_revision); if [ -n "$svn" ]; then printf "\w {$svn}"; else printf "\w"; fi)'
-PS1=$YELLOW'\u'$DEFAULT' '$W$YELLOW$DEFAULT' $ '
+W='$(svn=$(get_revision); if [ -n "$svn" ]; then printf "\w$svn"; else printf "\w"; fi)'
+PS1=$YELLOW'\u@\h:'$BLUE$W$YELLOW$DEFAULT'$ '
 
 # export PROMPT_COMMAND="echo -ne '\e]12;#00AFFF\a'"

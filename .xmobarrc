@@ -1,32 +1,19 @@
-Config { font = "eft:DejaVu Sans Mono:style=Book:size=12"
-       , borderColor = "black"
-       , border = TopB
+Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
        , bgColor = "black"
        , fgColor = "grey"
        , position = Top
        , lowerOnStart = True
-       , pickBroadest = False
-       , persistent = False
-       , hideOnStart = False
-       , iconRoot = "."
-       , allDesktops = True
-       , overrideRedirect = True
-       , commands = [ Run Weather "EHAM" ["-t","<fc=#ee9a00>weather: <tempC>C</fc>"] 36000
-                    -- , Run Network "wlan0" ["-L","0","-H","32",
-                    --                       "--normal","green","--high","red"] 10
-                    , Run Cpu ["-t", "<fc=#ee9a00>cpu <total>%</fc>", "-L","10","-H","60",
-                               "--normal","green","--high","red"] 10
-                    , Run Memory ["-t","<fc=yellow>mem <usedratio>%</fc>"] 10
-                    , Run Swap ["-t","<fc=green>swap <usedratio>%</fc>"] 10
-                    , Run Com "uname" ["-n"] "" 36000
-                    , Run Date "<fc=#ee9a00>%a %b %d %H:%M</fc>" "date" 10 
-                    , Run BatteryP ["BAT0"]
-                                   [ "-t", "<acstatus>" 
-                                   , "--"
-                                   , "-O", "<fc=yellow>CHARGING <left>%</fc>", "-o", "<fc=purple>bat <left>%</fc>"
-                                   ] 10
-                    , Run Com "/home/lvdveekens/code/config/getVolume.sh" [] "volume" 10
-       ]
+       , commands = [ Run Weather "EGPF" ["-t","<station>: <tempC>C","-L","18","-H","25","--normal","green","--high","red","--low","lightblue"] 36000
+                    , Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+                    , Run Network "eth1" ["-L","0","-H","32","--normal","green","--high","red"] 10
+                    , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
+                    , Run Memory ["-t","Mem: <usedratio>%"] 10
+                    , Run Swap [] 10
+                    , Run Com "uname" ["-s","-r"] "" 36000
+                , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+                    ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "}{ %cpu% | %memory% | %swap% | <fc=red>%volume%</fc> | %date%, %EHAM% - %uname%"} 
+       , template = "%cpu% | %memory% * %swap% | %eth0% - %eth1% }{ <fc=#ee9a00>%date%</fc>| %EGPF% | %uname%"
+       }
+

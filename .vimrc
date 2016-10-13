@@ -24,11 +24,11 @@ set t_Co=256
 "let g:solarized_termcolors=256
 set background=light
 
-colorscheme devbox-dark-256
+" colorscheme devbox-dark-256
  
 " airline plugin
 let g:airline_powerline_fonts=1
-"let g:airline_theme="sol"
+let g:airline_theme="sol"
 
 " insert a snippet
 let g:UltiSnipsExpandTrigger="<tab>"

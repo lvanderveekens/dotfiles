@@ -3,20 +3,32 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.SetWMName
 import XMonad.Util.EZConfig(additionalKeys)
+import XMonad.Util.Run(spawnPipe)
 import System.IO
 import Graphics.X11.ExtraTypes.XF86
- 
-main = xmonad =<< myBar myConfig
+import Data.Monoid 
 
-myBar = xmobar
+-- main = do 
+  --  xmproc <- spawnPipe "xmobar"
+   -- xmonad $ defaultConfig
 
-myConfig = defaultConfig { terminal = "xterm" 
-                         , modMask = mod1Mask
-                         , startupHook = setWMName "LG3D" } -- LG3D for java to recognize as a valid WM  
-           `additionalKeys` myKeys
-
-myKeys = [((0, xF86XK_AudioRaiseVolume), spawn "amixer set Master 2%+"), -- volume up 
-          ((0, xF86XK_AudioLowerVolume), spawn "amixer set Master 2%-"), -- volume down 
-          ((0, xF86XK_AudioMute), spawn "amixer set Master toggle"),     -- toggle volume 
-          ((mod4Mask, xK_l), spawn "xscreensaver-command -lock")]        -- lock the screen       
+main = do
+    xmproc <- spawnPipe "xmobar"
+    xmonad $ defaultConfig
+        { manageHook = manageDocks <+> manageHook defaultConfig
+        , layoutHook = avoidStruts  $  layoutHook defaultConfig
+        -- fix for xmobar to stop hiding behind windows
+        , handleEventHook = mconcat
+                          [ docksEventHook
+                          , handleEventHook defaultConfig ]
+        , logHook = dynamicLogWithPP xmobarPP
+                        { ppOutput = hPutStrLn xmproc
+                        , ppTitle = xmobarColor "green" "" . shorten 50
+                        }
+        , modMask = mod1Mask     
+        } `additionalKeys`
+        [ ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
+        , ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s")
+        , ((0, xK_Print), spawn "scrot")
+        ]
 
