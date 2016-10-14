@@ -4,6 +4,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ICCCMFocus
 import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Util.Run(spawnPipe)
+import XMonad.Actions.UpdatePointer
 import XMonad.Actions.WorkspaceNames
 import XMonad.Prompt
 import XMonad.Prompt.Workspace
@@ -39,9 +40,9 @@ main = do
         , ((0,                    xK_F12), spawn "~/Code/conf/paste.sh")
         ]
 
-myLogHook s = dynamicLogWithPP =<< workspaceNamesPP xmobarPP { ppOutput = hPutStrLn s
+myLogHook s = (dynamicLogWithPP =<< workspaceNamesPP xmobarPP { ppOutput = hPutStrLn s
                                                              , ppTitle = xmobarColor "green" "" . shorten 100
-                                                             }
+                                                             }) >> updatePointer (0.5,0.5) (1,1)
 
 myLayoutHook = avoidStruts $ smartSpacing 2 $ layoutHook defaultConfig
 
