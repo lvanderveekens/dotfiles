@@ -7,6 +7,8 @@ import XMonad.Util.Run(spawnPipe)
 import XMonad.Actions.WorkspaceNames
 import XMonad.Prompt
 import XMonad.Prompt.Workspace
+import XMonad.Layout.Spacing
+import XMonad.Layout.NoBorders
 import System.IO
 import Graphics.X11.ExtraTypes.XF86
 import Data.Monoid 
@@ -15,7 +17,7 @@ main = do
     xmproc <- spawnPipe "xmobar"
     xmonad $ defaultConfig
         { manageHook = manageDocks <+> manageHook defaultConfig
-        , layoutHook = avoidStruts  $  layoutHook defaultConfig
+        , layoutHook = myLayoutHook 
         -- fix for xmobar to stop hiding behind windows
         , handleEventHook = mconcat
                           [ docksEventHook
@@ -37,7 +39,9 @@ main = do
         , ((0,                    xK_F12), spawn "~/Code/conf/paste.sh")
         ]
 
-myLogHook dst = 
-    dynamicLogWithPP =<< workspaceNamesPP xmobarPP { ppOutput = hPutStrLn dst
-                                                   , ppTitle = xmobarColor "yellow" "" . shorten 100
-                                                   }
+myLogHook s = dynamicLogWithPP =<< workspaceNamesPP xmobarPP { ppOutput = hPutStrLn s
+                                                             , ppTitle = xmobarColor "green" "" . shorten 100
+                                                             }
+
+myLayoutHook = avoidStruts $ spacing 2 $ layoutHook defaultConfig
+
