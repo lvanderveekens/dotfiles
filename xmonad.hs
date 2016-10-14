@@ -41,8 +41,8 @@ main = do
         ]
 
 myLogHook s = (dynamicLogWithPP =<< workspaceNamesPP xmobarPP { ppOutput = hPutStrLn s
-                                                             , ppTitle = xmobarColor "green" "" . shorten 100
-                                                             }) >> updatePointer (0.5,0.5) (1,1)
+                                                              , ppTitle = xmobarColor "green" "" . shorten 90
+                                                              }) >> updatePointer (0.5,0.5) (0,0)
 
 myLayoutHook = avoidStruts $ smartSpacing 2 $ layoutHook defaultConfig
 
