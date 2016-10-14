@@ -27,11 +27,11 @@ main = do
         -- , startupHook = setWMName "LG3D" 
         -- fixed it using _JAVA_AWT_WM_NONREPARENTING=1 in ~/.profile
         , logHook = myLogHook xmproc
-        , modMask = mod1Mask     
+        , modMask = mod4Mask     
         , terminal = "gnome-terminal"
         } `additionalKeys`
-        [ ((mod4Mask,               xK_l), spawn "gnome-screensaver-command -l")
-        , ((mod1Mask .|. shiftMask, xK_r), renameWorkspace defaultXPConfig)
+        [ ((mod4Mask .|. shiftMask, xK_l), spawn "gnome-screensaver-command -l")
+        , ((mod4Mask .|. shiftMask, xK_r), renameWorkspace defaultXPConfig)
         , ((0,   xF86XK_AudioRaiseVolume), spawn "amixer set Master 5%+")
         , ((0,   xF86XK_AudioLowerVolume), spawn "amixer set Master 5%-")
         , ((0,          xF86XK_AudioMute), spawn "amixer set Master toggle")
@@ -42,7 +42,9 @@ main = do
 
 myLogHook s = (dynamicLogWithPP =<< workspaceNamesPP xmobarPP { ppOutput = hPutStrLn s
                                                               , ppTitle = xmobarColor "green" "" . shorten 90
+                                                              , ppOrder = \(w:l:t) -> [w] ++ t
+                                                              , ppSep = "  -  "
                                                               }) >> updatePointer (0.5,0.5) (0,0)
 
-myLayoutHook = avoidStruts $ smartSpacing 2 $ layoutHook defaultConfig
+myLayoutHook = avoidStruts $ smartSpacing 3 $ layoutHook defaultConfig
 
