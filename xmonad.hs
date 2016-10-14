@@ -5,6 +5,8 @@ import XMonad.Hooks.ICCCMFocus
 import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Actions.WorkspaceNames
+import XMonad.Prompt
+import XMonad.Prompt.Workspace
 import System.IO
 import Graphics.X11.ExtraTypes.XF86
 import Data.Monoid 
@@ -25,16 +27,17 @@ main = do
         , modMask = mod1Mask     
         , terminal = "gnome-terminal"
         } `additionalKeys`
-        [ ((mod4Mask,             xK_l), spawn "gnome-screensaver-command -l")
-        , ((0, xF86XK_AudioRaiseVolume), spawn "amixer set Master 5%+")
-        , ((0, xF86XK_AudioLowerVolume), spawn "amixer set Master 5%-")
-        , ((0,        xF86XK_AudioMute), spawn "amixer set Master toggle")
-        , ((controlMask,      xK_Print), spawn "sleep 0.2; scrot -s")
-        , ((0,                xK_Print), spawn "scrot")
-        , ((0,                  xK_F12), spawn "~/Code/conf/paste.sh")
+        [ ((mod4Mask,               xK_l), spawn "gnome-screensaver-command -l")
+        , ((mod1Mask .|. shiftMask, xK_r), renameWorkspace defaultXPConfig)
+        , ((0,   xF86XK_AudioRaiseVolume), spawn "amixer set Master 5%+")
+        , ((0,   xF86XK_AudioLowerVolume), spawn "amixer set Master 5%-")
+        , ((0,          xF86XK_AudioMute), spawn "amixer set Master toggle")
+        , ((controlMask,        xK_Print), spawn "sleep 0.2; scrot -s")
+        , ((0,                  xK_Print), spawn "scrot")
+        , ((0,                    xK_F12), spawn "~/Code/conf/paste.sh")
         ]
 
-myLogHook dst = dynamicLogWithPP xmobarPP { ppOutput = hPutStrLn dst
-                                          , ppTitle = xmobarColor "yellow" "" . shorten 100
-                                          }
-
+myLogHook dst = 
+    dynamicLogWithPP =<< workspaceNamesPP xmobarPP { ppOutput = hPutStrLn dst
+                                                   , ppTitle = xmobarColor "yellow" "" . shorten 100
+                                                   }
