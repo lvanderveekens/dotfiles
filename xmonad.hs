@@ -7,7 +7,7 @@ import XMonad.Util.Run(spawnPipe)
 import XMonad.Actions.WorkspaceNames
 import XMonad.Prompt
 import XMonad.Prompt.Workspace
-import XMonad.Layout.Spacing
+import XMonad.Layout.Spacing (smartSpacing)
 import XMonad.Layout.NoBorders
 import System.IO
 import Graphics.X11.ExtraTypes.XF86
@@ -43,5 +43,5 @@ myLogHook s = dynamicLogWithPP =<< workspaceNamesPP xmobarPP { ppOutput = hPutSt
                                                              , ppTitle = xmobarColor "green" "" . shorten 100
                                                              }
 
-myLayoutHook = avoidStruts $ spacing 2 $ layoutHook defaultConfig
+myLayoutHook = avoidStruts $ smartSpacing 2 $ layoutHook defaultConfig
 
