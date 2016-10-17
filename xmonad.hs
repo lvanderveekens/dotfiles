@@ -53,11 +53,11 @@ main = do
         , ((controlMask,           xK_Print), spawn "sleep 0.2; scrot -s")
         , ((0 ,                    xK_Print), spawn "scrot")
         -- paste the credentials for the NCC
-        , ((0,                       xK_F12), spawn "~/Code/conf/paste.sh")
+        , ((0,                       xK_F12), spawn "~/Code/dotfiles/paste.sh")
         ]
 
 myLogHook s = (dynamicLogWithPP =<< workspaceNamesPP xmobarPP { ppOutput = hPutStrLn s
-                                                              , ppTitle = xmobarColor "green" "" . shorten 90
+                                                              , ppTitle = xmobarColor "green" "" . shorten 70
                                                               , ppOrder = \(w:l:t) -> [w] ++ t
                                                               , ppSep = "  -  "
                                                               }) >> updatePointer (0.5,0.5) (0,0)
