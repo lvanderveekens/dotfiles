@@ -18,7 +18,7 @@ import Data.Monoid
 main = do
     xmproc <- spawnPipe "xmobar"
     xmonad $ defaultConfig
-        { manageHook = manageDocks <+> manageHook defaultConfig
+        { manageHook = manageHook defaultConfig <+> myManageHook <+> manageDocks 
         , layoutHook = myLayoutHook 
         -- fix for xmobar to stop hiding behind windows
         , handleEventHook = mconcat
@@ -56,6 +56,13 @@ main = do
         , ((0,                       xK_F12), spawn "~/Code/dotfiles/paste.sh")
         ]
 
+myManageHook = composeAll . concat $
+        [ [ className =? c --> doFloat | c <- myFloats]
+        , [ title     =? t --> doFloat | t <- otherFloats]
+        ]    
+    where myFloats    = ["Gimp"]
+          otherFloats = ["Netinium AMM+ v2.27"]
+
 myLogHook s = (dynamicLogWithPP =<< workspaceNamesPP xmobarPP { ppOutput = hPutStrLn s
                                                               , ppTitle = xmobarColor "green" "" . shorten 70
                                                               , ppOrder = \(w:l:t) -> [w] ++ t
@@ -63,4 +70,5 @@ myLogHook s = (dynamicLogWithPP =<< workspaceNamesPP xmobarPP { ppOutput = hPutS
                                                               }) >> updatePointer (0.5,0.5) (0,0)
 
 myLayoutHook = avoidStruts $ smartSpacing 4 $ layoutHook defaultConfig
+
 

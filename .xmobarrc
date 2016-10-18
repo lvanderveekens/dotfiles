@@ -13,13 +13,14 @@ Config {
                     , Run Swap [] 10
                     , Run Com "uname" ["-s","-r"] "" 36000
                     , Run Com "hostname" [] "" 36000
-                    , Run Date "%a %b %_d, %H:%M" "date" 10
+                    , Run Com "/bin/bash" ["-c", "~/Code/dotfiles/trayerSpaces.sh"] "spaces" 10
+                    , Run Date "%a %b %_d %Y %H:%M" "date" 10
                     , Run StdinReader
                     , Run Com "/bin/bash" ["-c", "~/Code/dotfiles/getVolume.sh"] "volume" 1
                     , Run DiskU [("/", "Root: <used>/<size>"), ("/home", "Home: <used>/<size>")] ["-L", "20", "-H", "50", "-m", "1", "-p", "3"] 20
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %cpu% | %disku% | %memory% %swap% | %volume% | %hostname% | <fc=#ee9a00>%date%</fc>"
+       , template = "%StdinReader% }{ %cpu% | %disku% | %memory% %swap% | %volume% | %hostname% | <fc=#ee9a00>%date%</fc> | %spaces%"
        }
 
