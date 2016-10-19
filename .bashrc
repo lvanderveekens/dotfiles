@@ -12,6 +12,7 @@ RED='\001\e[01;31m\002' GREEN='\001\e[01;32m\002'
 GREEN_UNDERLINED='\001\e[01;32;04m\002'
 YELLOW='\001\e[01;33m\002'
 BLUE='\001\e[01;34m\002'
+PINK='\001\e[01;35m\002'
 UNDERLINED='\001\e[01;04m\002'
 
 ### FUNCTIONS
@@ -64,6 +65,5 @@ function get_revision() {
 
 # set PS1 variable
 W='$(svn=$(get_revision); if [ -n "$svn" ]; then printf "\w$svn"; else printf "\w"; fi)'
-PS1=$YELLOW'\u@\h:'$BLUE$W$YELLOW$DEFAULT'$ '
-
-# export PROMPT_COMMAND="echo -ne '\e]12;#00AFFF\a'"
+# PS1='[\T] '$YELLOW'\u@\h:'$PINK$W$YELLOW$DEFAULT'\n$ '
+PS1='[\T] '$PINK$W$YELLOW$DEFAULT'$ '

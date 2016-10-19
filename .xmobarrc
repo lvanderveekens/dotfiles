@@ -1,26 +1,28 @@
-Config { 
-         -- appearance
-         font = "xft:San Francisco Display Medium:size=9:bold"
-       , bgColor = "black"
-       , fgColor = "grey"
-       , position = Top
+Config { -- appearance
+         font         = "xft:San Francisco Display Medium:size=9:bold"
+       , bgColor      = "black"
+       , fgColor      = "grey"
+
+       , position     = Top 
+       --, border       = BottomB
+       --, borderColor  = ""
 
        , lowerOnStart = True
-       , commands = [ Run Weather "EGPF" ["-t","<station>: <tempC>C","-L","18","-H","25","--normal","green","--high","red","--low","lightblue"] 36000
-                    , Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
-                    , Run Cpu ["-L","3","-H","50","--high","red"] 10
-                    , Run Memory ["-t","Mem: <usedratio>%"] 10
-                    , Run Swap [] 10
-                    , Run Com "uname" ["-s","-r"] "" 36000
-                    , Run Com "hostname" [] "" 36000
-                    , Run Com "/bin/bash" ["-c", "~/Code/dotfiles/trayerSpaces.sh"] "spaces" 10
-                    , Run Date "%a %b %_d %Y %H:%M" "date" 10
-                    , Run StdinReader
-                    , Run Com "/bin/bash" ["-c", "~/Code/dotfiles/getVolume.sh"] "volume" 1
-                    , Run DiskU [("/", "Root: <used>/<size>"), ("/home", "Home: <used>/<size>")] ["-L", "20", "-H", "50", "-m", "1", "-p", "3"] 20
-                    ]
-       , sepChar = "%"
-       , alignSep = "}{"
-       , template = "%StdinReader% }{ %cpu% | %disku% | %memory% %swap% | %volume% | %hostname% | <fc=#ee9a00>%date%</fc> | %spaces%"
+       , commands     = [ Run Weather "EGPF" ["-t","<station>: <tempC>C","-L","18","-H","25","--normal","green","--high","red","--low","lightblue"] 36000
+                        , Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+                        , Run Cpu ["-L","3","-H","50","--high","red"] 10
+                        , Run Memory ["-t","Mem: <usedratio>%"] 10
+                        , Run Swap [] 10
+                        , Run Com "uname" ["-s","-r"] "" 36000
+                        , Run Com "hostname" [] "" 36000
+                        , Run Com "/bin/bash" ["-c", "~/Code/dotfiles/trayerSpaces.sh"] "trayerSpaces" 10
+                        , Run Date "%a %b %_d %Y %H:%M" "date" 10
+                        , Run StdinReader
+                        , Run Com "/bin/bash" ["-c", "~/Code/dotfiles/getVolume.sh"] "volume" 1
+                        , Run DiskU [("/", "Root: <used>/<size>"), ("/home", "Home: <used>/<size>")] ["-L", "20", "-H", "50", "-m", "1", "-p", "3"] 20
+                        ]
+       , sepChar      = "%"
+       , alignSep     = "}{"
+       , template     = "%StdinReader% }{ <fc=#909090>%cpu% | %disku% | %memory% %swap% | %volume% | %hostname% | <fc=#ee9a00>%date%</fc> | %trayerSpaces%</fc>"
        }
 

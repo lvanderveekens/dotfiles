@@ -30,7 +30,7 @@ main = do
         , modMask         = mod4Mask     
         , terminal        = "xfce4-terminal"
         , borderWidth     = 2
-        , workspaces = ["web","code", "mail", "database", "ssh"]
+        , workspaces      = ["Web","Code", "Mail", "Database", "SSH", "6", "7", "8", "9"]
         } `additionalKeys` myKeys
             
 -- Key configuration
@@ -60,17 +60,15 @@ myLogHook h = (dynamicLogWithPP =<< workspaceNamesPP (myXmobar h)) >> updatePoin
 
 -- xmobar configuration
 myXmobar h = xmobarPP { ppOutput  = hPutStrLn h
-                      , ppTitle   = xmobarColor "lightgreen" "" . shorten 70
+                      , ppTitle   = xmobarColor "white" "" . shorten 100
                       , ppOrder   = \(w:l:t) -> [w] ++ t
-                      , ppSep     = " - "
+                      , ppSep     = " |  "
                       , ppWsSep   = ""
                       , ppCurrent = xmobarColor "white" "red" . pad
                       , ppVisible = xmobarColor "red" "" . pad
                       , ppHidden  = xmobarColor "#909090" "" . pad
-                      --, ppHiddenNoWindows = xmobarColor "#909090" "" . pad
+                      --, ppHiddenNoWindows = xmobarColor "#000000" "" . pad
                       }
 
-
 myLayoutHook = avoidStruts $ smartSpacing 4 $ layoutHook defaultConfig
-
 

@@ -44,13 +44,9 @@ let g:indentLine_char='|'
 
 " toggle nerd tree plugin
 map <C-n> :NERDTreeToggle<CR>
-map <C-a> :call RunHaskell()<CR>
-
-function! RunHaskell()
-    w
-    !ghc --make -outputdir bin -o out %
-    !./out 
-endfunction
 
 " turn off omni sql auto complete 
 let g:omni_sql_no_default_maps=1
+
+" recognize .adoc files as asciidoc files 
+autocmd BufNewFile,BufRead *.adoc set filetype=asciidoc
