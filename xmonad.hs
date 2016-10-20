@@ -62,11 +62,11 @@ myLogHook h = (dynamicLogWithPP =<< workspaceNamesPP (myXmobar h)) >> updatePoin
 myXmobar h = xmobarPP { ppOutput  = hPutStrLn h
                       , ppTitle   = xmobarColor "white" "" . shorten 100
                       , ppOrder   = \(w:l:t) -> [w] ++ t
-                      , ppSep     = " |  "
+                      , ppSep     = " - "
                       , ppWsSep   = ""
                       , ppCurrent = xmobarColor "white" "red" . pad
                       , ppVisible = xmobarColor "red" "" . pad
-                      , ppHidden  = xmobarColor "#909090" "" . pad
+                      , ppHidden  = xmobarColor "grey" "" . pad
                       --, ppHiddenNoWindows = xmobarColor "#000000" "" . pad
                       }
 

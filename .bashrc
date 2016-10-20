@@ -66,4 +66,4 @@ function get_revision() {
 # set PS1 variable
 W='$(svn=$(get_revision); if [ -n "$svn" ]; then printf "\w$svn"; else printf "\w"; fi)'
 # PS1='[\T] '$YELLOW'\u@\h:'$PINK$W$YELLOW$DEFAULT'\n$ '
-PS1='[\T] '$PINK$W$YELLOW$DEFAULT'$ '
+PS1='[\t] '$PINK$W$YELLOW$DEFAULT'$ '
