@@ -27,6 +27,6 @@ Config { -- appearance
                         ]
        , sepChar      = "%"
        , alignSep     = "}{"
-       , template     = "%StdinReader% }{ %cpu% %memory% %swap% %disku% %volume% <fc=pink>%hostname%</fc> %date% | %spaces%"
+       , template     = "%StdinReader% }{ %cpu% %memory% %swap% %disku% %volume% <fc=pink>%hostname%</fc> %date% %spaces%"
        }
 

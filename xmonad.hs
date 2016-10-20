@@ -14,6 +14,8 @@ import XMonad.Layout.NoBorders
 import System.IO
 import Graphics.X11.ExtraTypes.XF86
 import Data.Monoid 
+import Data.List
+import Data.List.Split
 
 -- Main config
 -- the setVMName option causes firefox to fail on a resize
@@ -30,23 +32,23 @@ main = do
         , modMask         = mod4Mask     
         , terminal        = "xfce4-terminal"
         , borderWidth     = 2
-        , workspaces      = ["Web","Code", "Mail", "Database", "SSH", "6", "7", "8", "9"]
+        , workspaces      = ["Web","Code", "Mail"] 
         } `additionalKeys` myKeys
             
 -- Key configuration
 myKeys = 
-    [ ((mod4Mask .|. shiftMask,    xK_l), spawn "gnome-screensaver-command -l") -- lock the screen 
-    , ((mod4Mask .|. shiftMask,    xK_r), renameWorkspace defaultXPConfig)      -- rename the current workspace
+    [ ((mod4Mask .|. shiftMask,     xK_l), spawn "gnome-screensaver-command -l") -- lock the screen 
+    , ((mod4Mask .|. shiftMask,     xK_r), renameWorkspace defaultXPConfig)      -- rename the current workspace
     , ((mod4Mask .|. shiftMask,  xK_Left), swapTo Prev)                         -- move the current workspace to the previous slot
     , ((mod4Mask .|. shiftMask, xK_Right), swapTo Next)                         -- move the current workspace to the next slot
     , ((mod4Mask,               xK_Right), nextWS)                              -- switch to the next workspace
     , ((mod4Mask,                xK_Left), prevWS)                              -- switch to the previous workspace
-    , ((0,      xF86XK_AudioRaiseVolume), spawn "amixer set Master 5%+")        -- increase the volume
-    , ((0,      xF86XK_AudioLowerVolume), spawn "amixer set Master 5%-")        -- decrease the volume
-    , ((0,             xF86XK_AudioMute), spawn "amixer set Master toggle")     -- mute
-    , ((controlMask,           xK_Print), spawn "sleep 0.2; scrot -s")          -- screenshot
-    , ((0 ,                    xK_Print), spawn "scrot")                        -- screenshot
-    , ((0,                       xK_F12), spawn "~/Code/dotfiles/paste.sh")     -- paste the credentials for the NCC
+    , ((0,       xF86XK_AudioRaiseVolume), spawn "amixer set Master 5%+")        -- increase the volume
+    , ((0,       xF86XK_AudioLowerVolume), spawn "amixer set Master 5%-")        -- decrease the volume
+    , ((0,              xF86XK_AudioMute), spawn "amixer set Master toggle")     -- mute
+    , ((controlMask,            xK_Print), spawn "sleep 0.2; scrot -s")          -- screenshot
+    , ((0 ,                     xK_Print), spawn "scrot")                        -- screenshot
+    , ((0,                        xK_F12), spawn "~/Code/dotfiles/paste.sh")     -- paste the credentials for the NCC
     ]
 
 myManageHook = composeAll . concat $
@@ -58,16 +60,17 @@ myManageHook = composeAll . concat $
 
 myLogHook h = (dynamicLogWithPP =<< workspaceNamesPP (myXmobar h)) >> updatePointer (0.5,0.5) (0,0)
 
--- xmobar configuration
+-- Xmobar configuration
 myXmobar h = xmobarPP { ppOutput  = hPutStrLn h
-                      , ppTitle   = xmobarColor "white" "" . shorten 100
-                      , ppOrder   = \(w:l:t) -> [w] ++ t
-                      , ppSep     = " - "
+                      , ppTitle   = xmobarColor "white" "" . pad . shorten 100
+                      , ppOrder   = \(w:l:ts) -> [w,l] ++ ts
+                      , ppSep     = ""
                       , ppWsSep   = ""
                       , ppCurrent = xmobarColor "white" "red" . pad
                       , ppVisible = xmobarColor "red" "" . pad
                       , ppHidden  = xmobarColor "grey" "" . pad
-                      --, ppHiddenNoWindows = xmobarColor "#000000" "" . pad
+                      , ppLayout  = \lay -> xmobarColor "black" "yellow" . pad $ last $ splitOn "SmartSpacing 4 " lay
+                     --, ppHiddenNoWindows = xmobarColor "#000000" "" . pad
                       }
 
 myLayoutHook = avoidStruts $ smartSpacing 4 $ layoutHook defaultConfig
