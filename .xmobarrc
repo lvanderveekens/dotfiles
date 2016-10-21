@@ -1,8 +1,14 @@
 Config { -- appearance
          -- font         = "xft:San Francisco Display Medium:size=9:bold"
-         font         = "xft:DejaVu Sans Mono:size=9:bold"
-         -- font         = "xft:Ubuntu Mono derivative Powerline:size=11:bold"
+         -- font         = "xft:DejaVu Sans Mono for Powerline:size=9:regular"
+         -- font         = "xft:DejaVu Sans Mono for Powerline:size=10:bold:antialias=true:hinting=true"
+         -- font         = "xft:Roboto Mono for Powerline:size=9:bold"
+         -- font         = "xft:SourceCodePro for Powerline:pixelsize=11:bold"
+         -- font         = "xft:Hack:size=9:regular"
+         font         = "xft:Ubuntu Mono derivative Powerline:size=10:bold:antialias=true:hinting=true"
+         -- font         = "xft:Inconsolata for Powerline:pixelsize=13d"
          -- font         = "xft:Unifont:size=10:bold"
+         -- font = "-*-terminus-*-r-normal-*-*-120-*-*-*-*-iso8859-*"
        , bgColor      = "black"
        , fgColor      = "grey"
 
