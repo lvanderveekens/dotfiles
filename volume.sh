@@ -1,7 +1,10 @@
-#!/bin/bash
+#!/bin/sh
+# A simple shell script that reads the volume level
 
 if [ -n "$(amixer get Master | grep off)" ]; then
-    echo "Vol off"    
+    VOL=OFF
 else 
-    echo "<fc=green>Vol "$(amixer get Master | grep "Front Left:" | awk '{ gsub("\\[|\\]",""); print $5 }')"</fc>"
+    VOL=$(amixer get Master | grep "Front Left:" | awk '{ gsub("\\[|\\]",""); print $5 }')
 fi
+
+echo "<fc=green>VOL $VOL</fc>"

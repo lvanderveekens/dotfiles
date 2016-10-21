@@ -32,7 +32,7 @@ main = do
         , modMask         = mod4Mask     
         , terminal        = "xfce4-terminal"
         , borderWidth     = 2
-        , workspaces      = ["Web","Code", "Mail"] 
+        , workspaces      = ["Web","Code", "Mail", "4", "5", "6", "7", "8", "9"] 
         } `additionalKeys` myKeys
             
 -- Key configuration
@@ -67,10 +67,10 @@ myXmobar h = xmobarPP { ppOutput  = hPutStrLn h
                       , ppSep     = ""
                       , ppWsSep   = ""
                       , ppCurrent = xmobarColor "white" "red" . pad
-                      , ppVisible = xmobarColor "red" "" . pad
-                      , ppHidden  = xmobarColor "grey" "" . pad
+                      , ppVisible = xmobarColor "black" "red" . pad
+                      , ppHidden  = xmobarColor "black" "white" . pad
                       , ppLayout  = \lay -> xmobarColor "black" "yellow" . pad $ last $ splitOn "SmartSpacing 4 " lay
-                     --, ppHiddenNoWindows = xmobarColor "#000000" "" . pad
+                      , ppHiddenNoWindows = xmobarColor "grey" "" . pad
                       }
 
 myLayoutHook = avoidStruts $ smartSpacing 4 $ layoutHook defaultConfig
