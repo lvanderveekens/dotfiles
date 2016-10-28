@@ -1,5 +1,6 @@
 import XMonad
 import XMonad.Hooks.DynamicLog
+import XMonad.Layout.SimpleDecoration
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ICCCMFocus
 import XMonad.Util.EZConfig(additionalKeys)
@@ -59,13 +60,16 @@ myKeys =
 
 -- Manage hook
 myManageHook = composeAll . concat $
-        [ [ className =? c --> doFloat | c <- myFloats]
-        , [ title     =? t --> doFloat | t <- otherFloats]
+        [ [ className =? c --> doFloat | c <- classFloats]
+        , [ title     =? t --> doFloat | t <- titleFloats]
+        , [ title     =? t --> doShift "8" | t <- nccTitles]
         ]    
-    where myFloats    = ["Gimp"]
-          otherFloats = ["Netinium AMM+ v2.27"]
+    where classFloats    = ["Gimp"]
+          nccTitles   = ["Netinium AMM+ v2.27", "Netinium® AMM+ Login"]
+          titleFloats = ["Help"]
 
 -- Log hook
+-- NOTE: updatePointer messes up the dragging of windows 
 myLogHook h = (dynamicLogWithPP =<< workspaceNamesPP (myXmobar h)) >> updatePointer (0.5,0.5) (0,0)
 
 -- Layout hook
@@ -73,13 +77,13 @@ myLayoutHook = avoidStruts $ smartSpacing 4 $ layoutHook defaultConfig
 
 -- Xmobar
 myXmobar h = xmobarPP { ppOutput  = hPutStrLn h
-                      , ppTitle   = xmobarColor "white" "" . pad . shorten 100
+                      , ppTitle   = xmobarColor "yellow" "" . pad -- . shorten 100
                       , ppOrder   = \(w:l:ts) -> [w,l] ++ ts
                       , ppSep     = ""
                       , ppWsSep   = ""
                       , ppCurrent = xmobarColor "white" "red" . pad 
-                      , ppVisible = xmobarColor "black" "red" . pad
-                      , ppHidden  = xmobarColor "darkgrey" "#36454F" . pad
+                      , ppVisible = xmobarColor "red" "" . pad
+                      , ppHidden  = xmobarColor "white" "" . pad
                       , ppLayout  = \lay -> xmobarColor "black" "yellow" . pad  $ last $ splitOn "SmartSpacing 4 " lay
                       , ppHiddenNoWindows = xmobarColor "darkgrey" "" . pad
                       }

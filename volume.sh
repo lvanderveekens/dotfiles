@@ -7,4 +7,4 @@ else
     VOL=$(amixer get Master | grep "Front Left:" | awk '{ gsub("\\[|\\]",""); print $5 }')
 fi
 
-echo "<fc=green>VOL $VOL</fc>"
+echo "<fc=red>vol</fc> $VOL"

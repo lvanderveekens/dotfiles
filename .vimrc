@@ -23,7 +23,7 @@ set ic
 set t_Co=256
 "let g:solarized_termcolors=256
 
-colorscheme devbox-dark-256
+" colorscheme devbox-dark-256
 set background=dark
  
 " airline plugin
