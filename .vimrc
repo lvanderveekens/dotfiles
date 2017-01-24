@@ -74,7 +74,7 @@ let g:omni_sql_no_default_maps=1
 " recognize .adoc files as asciidoc files 
 autocmd BufNewFile,BufRead *.adoc set filetype=asciidoc
 " recognize .log files as log4j files
-autocmd BufNewFile,BufRead *.log.* set syntax=log4j
+autocmd BufNewFile,BufRead *.log* set syntax=log4j
 
 " Highlight search results
 set hlsearch
