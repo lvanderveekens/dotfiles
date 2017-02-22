@@ -50,11 +50,11 @@ function get_branch()
         awk '{ 
             sub("branches/",""); 
             sub("\\^/","");  
-            sub("/"," "); 
+            gsub("/"," "); 
             if ($4 == "trunk")  
                 printf "%s", toupper($3); 
             else 
-                printf "%s(%s)", toupper($3), $4; 
+                printf "%s(→%s)", toupper($3), $4; 
         }'
     )
     echo $branch 
@@ -73,7 +73,7 @@ function print_svn()
             printf "%s" $GREEN;
         fi
         # print the revision and set the color back to default
-        printf "(%s→r%s)%s" $1 $2 $DEFAULT;
+        printf "[%s r%s]%s" $1 $2 $DEFAULT;
     fi
 }
 
