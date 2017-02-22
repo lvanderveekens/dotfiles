@@ -34,9 +34,7 @@ function log()
     svn log "$@" | 
     awk '{ 
         if ($1 ~ /r[0-9]*/)  
-            printf "%s%s%s\n", "\033[01;33m", $0, "\033[00m" 
-        else if ($1 ~ /NTS-[0-9]*/) 
-            printf "%s%s%s %s\n", "\033[38;5;210m", $1, "\033[00m", substr($0, index($0,$2))
+            printf "%s%s%s\n", "\033[00;33m", $0, "\033[00m" 
         else 
             print $0
     }' | less -R
