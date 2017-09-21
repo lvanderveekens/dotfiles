@@ -1,2 +1,2 @@
-This repository has the purpose of sharing configuration files between multiple machines. 
+A place to store my configuration files to easily share them across machines.
 
