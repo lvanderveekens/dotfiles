@@ -17,8 +17,9 @@ set expandtab
 " one tab is four spaces
 set tabstop=4
 
-" ignore case during search
-set ic
+" Use capital letters to do a case sensitive search
+set ignorecase
+set smartcase
 
 " use 256 colors
 set t_Co=256
@@ -32,7 +33,7 @@ let g:ctrlp_max_files = 0
 let g:ctrlp_max_depth=40
 
 " airline plugin
-let g:airline_powerline_fonts=1
+"let g:airline_powerline_fonts=1
 let g:airline_theme="tomorrow"
 " let g:airline_theme="base16"
 " enable the list of buffers
@@ -62,9 +63,10 @@ let g:NERDTreeWinSize = 40
 " This replaces :tabnew which I used to bind to this mapping
 nmap <leader>T :enew<cr>
 
+" Close the current buffer
+nmap <leader>d :bd<CR>
 " Move to the next buffer
 nmap <leader>l :bnext<CR>
-
 " Move to the previous buffer
 nmap <leader>h :bprevious<CR>
 
@@ -78,6 +80,8 @@ autocmd BufNewFile,BufRead *.log* set syntax=log4j
 
 " Highlight search results
 set hlsearch
+" Redraws the screen and removes any seach highlighting 
+nnoremap <silent> <C-l> :nohl<CR><C-l>
 " Set the color of the search results
 hi Search ctermfg=black ctermbg=white
 
@@ -91,3 +95,5 @@ let g:ctrlp_working_path_mode = 'ra'
 " No file limit
 let g:ctrlp_max_files = 0
 
+" Enable JSX syntax highlighting and indentation in .js files
+let g:jsx_ext_required = 0
