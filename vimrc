@@ -1,11 +1,24 @@
-execute pathogen#infect()
+call plug#begin()
+
+Plug 'scrooloose/nerdtree'
+Plug 'flazz/vim-colorschemes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'tpope/vim-commentary'
+Plug 'fatih/vim-go'
+Plug 'Raimondi/delimitMate'
+
+call plug#end()
 
 syntax enable
 filetype plugin indent on
-colorscheme Tomorrow-Night
+colorscheme molokai
 
 " set cursorline
 " hi CursorLine cterm=NONE ctermbg=NONE ctermfg=white
+highlight linenr ctermfg=238 ctermbg=234
 
 set number
 " allow status bar to always show.
@@ -35,23 +48,24 @@ let g:ctrlp_max_depth=40
 " airline plugin
 "let g:airline_powerline_fonts=1
 let g:airline_theme="tomorrow"
-" let g:airline_theme="base16"
+"let g:airline_theme="base16"
+"let g:airline_theme="molokai"
 " enable the list of buffers
-let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#enabled = 1
 " just show the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
+" let g:airline#extensions#tabline#fnamemod = ':t'
 
 " insert a snippet
 let g:UltiSnipsExpandTrigger="<tab>"
 
 " end bracket one line below cursor after an enter
-let delimitMate_expand_cr=1
+"let delimitMate_expand_cr=1
 
 " size of an 'indent'
 set shiftwidth=4
 " vertical line indent
-let g:indentLine_color_term=120 
-let g:indentLine_char='|'
+"let g:indentLine_color_term=120 
+"let g:indentLine_char='|'
 
 " CUSTOM KEYBINDINGS 
 "
@@ -83,7 +97,7 @@ set hlsearch
 " Redraws the screen and removes any seach highlighting 
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 " Set the color of the search results
-hi Search ctermfg=black ctermbg=white
+"hi Search ctermfg=black ctermbg=white
 
 " Hide buffers that are modified
 "set hidden
@@ -97,3 +111,27 @@ let g:ctrlp_max_files = 0
 
 " Enable JSX syntax highlighting and indentation in .js files
 let g:jsx_ext_required = 0
+
+" Ignore the VIM version warning vim-go complains about
+let g:go_version_warning = 0
+
+" Go specific highlighting
+let g:go_highlight_space_tab_error = 0
+let g:go_highlight_array_whitespace_error = 0
+let g:go_highlight_trailing_whitespace_error = 0
+let g:go_highlight_extra_types = 0
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_types = 0
+"let g:go_highlight_functions = 1  
+"let g:go_highlight_methods = 1  
+let g:go_highlight_structs = 1  
+let g:go_highlight_operators = 1  
+let g:go_highlight_build_constraints = 1  
+
+autocmd FileType go nmap <leader>b :GoBuild<CR>
+autocmd FileType go nmap <leader>r :GoRun<CR>
+
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+
+set backspace=indent,eol,start
+set <Del>=
