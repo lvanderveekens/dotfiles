@@ -7,6 +7,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
 Plug 'fatih/vim-go'
 Plug 'Raimondi/delimitMate'
 
@@ -36,7 +37,6 @@ set smartcase
 
 " use 256 colors
 set t_Co=256
-" let g:solarized_termcolors=256
 
 " Use the nearest .svn directory as the cwd
 " This makes a lot of sense if you are working on a project 
@@ -46,8 +46,10 @@ let g:ctrlp_max_files = 0
 let g:ctrlp_max_depth=40
 
 " airline plugin
-"let g:airline_powerline_fonts=1
-let g:airline_theme="tomorrow"
+let g:airline_powerline_fonts=1
+let g:airline_theme="powerlineish"
+" let g:airline_solarized_bg='dark'
+" let g:solarized_termcolors=256
 "let g:airline_theme="base16"
 "let g:airline_theme="molokai"
 " enable the list of buffers
@@ -133,5 +135,5 @@ autocmd FileType go nmap <leader>r :GoRun<CR>
 
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 
+" Fix the weird behavior of the Backspace key on Mac
 set backspace=indent,eol,start
-set <Del>=
