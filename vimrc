@@ -92,7 +92,7 @@ let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_max_files = 0
 let g:ctrlp_max_depth=40
 
-" ==== AIRLINE 
+" ==== VIM-AIRLINE 
 
 let g:airline_powerline_fonts=1
 let g:airline_theme="powerlineish"
@@ -107,7 +107,7 @@ let g:UltiSnipsExpandTrigger="<tab>"
 " Move the closing bracket one line below the cursor after pressing Enter
 let delimitMate_expand_cr=1
 
-" ==== NERDTree 
+" ==== NERDTREE
 
 " Toggle the tree 
 map <C-n> :NERDTreeToggle<CR>
@@ -131,5 +131,3 @@ let g:go_version_warning = 0
 autocmd FileType go nmap <leader>b :GoBuild<CR>
 autocmd FileType go nmap <leader>r :GoRun<CR>
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
-
-
