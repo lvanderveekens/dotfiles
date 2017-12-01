@@ -60,6 +60,10 @@ set backspace=indent,eol,start
 " Enable JSX syntax highlighting and indentation in .js files
 let g:jsx_ext_required = 0
 
+" Word wrap without line breaks
+set wrap
+set linebreak
+
 " ==============================================================================
 " =============================== KEYBINDINGS ==================================
 " ==============================================================================
