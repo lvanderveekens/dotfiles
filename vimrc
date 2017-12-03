@@ -98,6 +98,8 @@ let g:ctrlp_max_depth=40
 
 " ==== VIM-AIRLINE 
 
+" Grab a Powerline font from 'https://github.com/powerline/fonts'
+" and configure it as the 'Monospace' font in gnome-tweak-tool
 let g:airline_powerline_fonts=1
 let g:airline_theme="powerlineish"
 
