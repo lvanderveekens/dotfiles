@@ -100,7 +100,7 @@ let g:ctrlp_max_depth=40
 
 " Grab a Powerline font from 'https://github.com/powerline/fonts'
 " and configure it as the 'Monospace' font in gnome-tweak-tool
-let g:airline_powerline_fonts=1
+" let g:airline_powerline_fonts=1
 let g:airline_theme="powerlineish"
 
 " ==== ULTISNIPS 
@@ -137,3 +137,6 @@ let g:go_version_warning = 0
 autocmd FileType go nmap <leader>b :GoBuild<CR>
 autocmd FileType go nmap <leader>r :GoRun<CR>
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+
+" to avoid having to copy lines into the + register first (on mac)
+set clipboard=unnamed
