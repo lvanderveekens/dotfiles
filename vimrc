@@ -25,12 +25,14 @@ call plug#end()
 syntax enable
 filetype plugin indent on
 
-colorscheme molokai
+colorscheme gruvbox
+let g:solarized_termcolors=256
+set background=dark
+
 
 " Display line numbers
 set number
-" Define the colors of the linenr bar
-highlight linenr ctermfg=238 ctermbg=234
+set relativenumber
 "
 " Always show the status bar
 set laststatus=2
@@ -52,7 +54,7 @@ set smartcase
 set hlsearch
 
 " Use 256 colors
-set t_Co=256
+" set t_Co=256
 
 " Fix the Backspace key on Mac
 set backspace=indent,eol,start
@@ -101,7 +103,8 @@ let g:ctrlp_max_depth=40
 " Grab a Powerline font from 'https://github.com/powerline/fonts'
 " and configure it as the 'Monospace' font in gnome-tweak-tool
 " let g:airline_powerline_fonts=1
-let g:airline_theme="powerlineish"
+"let g:airline_theme="powerlineish"
+let g:airline_theme="solarized"
 
 " ==== ULTISNIPS 
 
@@ -140,3 +143,6 @@ autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 
 " to avoid having to copy lines into the + register first (on mac)
 set clipboard=unnamed
+
+" jump to match while entering search pattern
+set incsearch
