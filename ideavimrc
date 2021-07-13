@@ -12,3 +12,6 @@ vmap = :action ReformatCode<CR>
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 set visualbell
+
+nnoremap g; :action JumpToLastChange<Enter>
+nnoremap g, :action JumpToNextChange<Enter>

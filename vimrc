@@ -25,9 +25,9 @@ call plug#end()
 syntax enable
 filetype plugin indent on
 
-colorscheme gruvbox
+colorscheme solarized
 let g:solarized_termcolors=256
-set background=dark
+set background=light
 
 
 " Display line numbers
