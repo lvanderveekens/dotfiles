@@ -5,8 +5,8 @@
 call plug#begin()
 
 Plug 'scrooloose/nerdtree'
-Plug 'flazz/vim-colorschemes'
 Plug 'vim-airline/vim-airline'
+Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
@@ -26,8 +26,7 @@ syntax enable
 filetype plugin indent on
 
 colorscheme solarized
-let g:solarized_termcolors=256
-set background=light
+set background=dark
 
 
 " Display line numbers
