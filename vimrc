@@ -4,17 +4,19 @@
 
 call plug#begin()
 
-Plug 'scrooloose/nerdtree'
-Plug 'vim-airline/vim-airline'
-Plug 'altercation/vim-colors-solarized'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'mxw/vim-jsx'
-Plug 'pangloss/vim-javascript'
+Plug 'scrooloose/nerdtree' 
+Plug 'vim-airline/vim-airline' 
+Plug 'altercation/vim-colors-solarized' 
+Plug 'vim-airline/vim-airline-themes' 
+Plug 'mxw/vim-jsx' 
+Plug 'pangloss/vim-javascript' 
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'fatih/vim-go'
 Plug 'Raimondi/delimitMate'
 Plug 'kien/ctrlp.vim'
+Plug 'mg979/vim-visual-multi'
+
 
 call plug#end()
 
@@ -118,8 +120,8 @@ let delimitMate_expand_cr=1
 " ==== NERDTREE
 
 " Toggle the tree 
-map <C-n> :NERDTreeToggle<CR>
-let g:NERDTreeWinSize = 40
+" map <C-n> :NERDTreeToggle<CR>
+" let g:NERDTreeWinSize = 40
   
 " ==== VIM-GO 
 
