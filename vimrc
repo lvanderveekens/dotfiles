@@ -15,8 +15,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'fatih/vim-go'
 Plug 'Raimondi/delimitMate'
 Plug 'kien/ctrlp.vim'
-Plug 'mg979/vim-visual-multi'
-
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 
 call plug#end()
 
@@ -120,7 +120,7 @@ let delimitMate_expand_cr=1
 " ==== NERDTREE
 
 " Toggle the tree 
-" map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 " let g:NERDTreeWinSize = 40
   
 " ==== VIM-GO 
