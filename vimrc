@@ -4,7 +4,7 @@
 
 call plug#begin()
 
-Plug 'scrooloose/nerdtree' 
+"Plug 'scrooloose/nerdtree' 
 Plug 'vim-airline/vim-airline' 
 Plug 'altercation/vim-colors-solarized' 
 Plug 'vim-airline/vim-airline-themes' 
@@ -120,7 +120,7 @@ let delimitMate_expand_cr=1
 " ==== NERDTREE
 
 " Toggle the tree 
-map <C-n> :NERDTreeToggle<CR>
+"map <C-n> :NERDTreeToggle<CR>
 " let g:NERDTreeWinSize = 40
   
 " ==== VIM-GO 
