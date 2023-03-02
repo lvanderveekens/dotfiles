@@ -1,0 +1,1 @@
+/Users/lvanderveekens/code/lvanderveekens/dotfiles/nvim-init.vim

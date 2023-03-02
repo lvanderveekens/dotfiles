@@ -27,7 +27,7 @@ call plug#end()
 syntax enable
 filetype plugin indent on
 
-colorscheme solarized
+"colorscheme solarized
 set background=dark
 
 
@@ -52,7 +52,7 @@ set ignorecase
 " A search term containing a capital letter triggers a case sensitive search
 set smartcase
 " Highlight search results
-set hlsearch
+" set hlsearch
 
 " Use 256 colors
 " set t_Co=256
@@ -105,7 +105,7 @@ let g:ctrlp_max_depth=40
 " and configure it as the 'Monospace' font in gnome-tweak-tool
 " let g:airline_powerline_fonts=1
 "let g:airline_theme="powerlineish"
-let g:airline_theme="solarized"
+"let g:airline_theme="solarized"
 
 " ==== ULTISNIPS 
 
