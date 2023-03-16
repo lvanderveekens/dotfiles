@@ -6,7 +6,6 @@ call plug#begin()
 
 "Plug 'scrooloose/nerdtree' 
 Plug 'vim-airline/vim-airline' 
-Plug 'altercation/vim-colors-solarized' 
 Plug 'vim-airline/vim-airline-themes' 
 Plug 'mxw/vim-jsx' 
 Plug 'pangloss/vim-javascript' 
@@ -14,9 +13,9 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'fatih/vim-go'
 Plug 'Raimondi/delimitMate'
-Plug 'kien/ctrlp.vim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+"Plug 'kien/ctrlp.vim'
+"Plug 'nvim-lua/plenary.nvim'
+"Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 
 call plug#end()
 
@@ -26,10 +25,6 @@ call plug#end()
 
 syntax enable
 filetype plugin indent on
-
-"colorscheme solarized
-set background=dark
-
 
 " Display line numbers
 set number
@@ -53,9 +48,6 @@ set ignorecase
 set smartcase
 " Highlight search results
 " set hlsearch
-
-" Use 256 colors
-" set t_Co=256
 
 " Fix the Backspace key on Mac
 set backspace=indent,eol,start

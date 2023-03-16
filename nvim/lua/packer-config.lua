@@ -14,4 +14,14 @@ return require('packer').startup(function(use)
     use 'mfussenegger/nvim-dap'
     use 'mfussenegger/nvim-jdtls'
     use 'nvim-lua/plenary.nvim'
+
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.1',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
+
+    use "EdenEast/nightfox.nvim"
+    use 'folke/tokyonight.nvim'
+
+    use 'stephpy/vim-php-cs-fixer'
 end)
