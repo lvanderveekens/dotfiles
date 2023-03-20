@@ -2,23 +2,13 @@ lua require('packer-config')
 lua require('tree-config')
 lua require('telescope-config')
 
+let mapleader=" "
+
 "set runtimepath^=~/.vim runtimepath+=~/.vim/after
 "let &packpath = &runtimepath
 "source ~/.vimrc
 
-" Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files hidden=true<cr>
-nnoremap <C-p> <cmd>Telescope git_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
-" nvim tree 
-nnoremap <C-n> <cmd>NvimTreeToggle<cr>
-
 colorscheme nightfox
-
-let g:php_cs_fixer_path = "~/tools/php-cs-fixer/vendor/bin/php-cs-fixer" " define the path to the php-cs-fixer.phar
 
 syntax enable
 filetype plugin indent on
@@ -53,14 +43,20 @@ set backspace=indent,eol,start
 set wrap
 set linebreak
 
+" to avoid having to copy lines into the + register first (on mac)
+set clipboard=unnamed
+
+" jump to match while entering search pattern
+set incsearch
+
 " ==============================================================================
 " =============================== KEYBINDINGS ==================================
 " ==============================================================================
 
 " Open a new empty buffer
-nmap <leader>T :enew<cr>
+"nmap <leader>T :enew<cr>
 " Close the current buffer
-nmap <leader>d :bd<CR>
+"nmap <leader>d :bd<CR>
 " Move to the next buffer
 nmap <leader>l :bnext<CR>
 " Move to the previous buffer
@@ -69,9 +65,15 @@ nmap <leader>h :bprevious<CR>
 " Remove search highlights
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
-" to avoid having to copy lines into the + register first (on mac)
-set clipboard=unnamed
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files hidden=true<cr>
+nnoremap <C-p> <cmd>Telescope git_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fo <cmd>Telescope oldfiles<cr>
 
-" jump to match while entering search pattern
-set incsearch
+" nvim tree 
+nnoremap <C-n> <cmd>NvimTreeToggle<cr>
 
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d

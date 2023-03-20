@@ -1,3 +1,5 @@
+let mapleader =" "
+
 set clipboard+=unnamed
 set ignorecase
 set smartcase
@@ -8,6 +10,10 @@ set relativenumber
 set hls
 
 map <leader>ff <Action>(GotoFile)
+map <leader>fc <Action>(GotoClass)
+map <leader>fs <Action>(GotoSymbol)
+map <leader>fo <Action>(RecentFiles)
+map <leader>fg <Action>(FindInPath)
 vmap = :action ReformatCode<CR>
 
 " Remove search highlights
@@ -15,8 +21,15 @@ nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 set visualbell
 
-nmap <leader>d <Action>(CloseEditor)
+"nmap <leader>d <Action>(CloseEditor)
 nmap <leader>l <Action>(NextTab)
 nmap <leader>h <Action>(PreviousTab)
 
 map <leader>ff <Action>(GotoFile)
+
+nmap <C-o> <Action>(Back)
+nmap <C-i> <Action>(Forward)
+
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+
