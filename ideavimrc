@@ -14,6 +14,7 @@ map <leader>fc <Action>(GotoClass)
 map <leader>fs <Action>(GotoSymbol)
 map <leader>fo <Action>(RecentFiles)
 map <leader>fg <Action>(FindInPath)
+
 vmap = :action ReformatCode<CR>
 
 " Remove search highlights
@@ -33,3 +34,5 @@ nmap <C-i> <Action>(Forward)
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
 
+vmap K <Action>(MoveLineUp)
+vmap J <Action>(MoveLineDown)
