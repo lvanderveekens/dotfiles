@@ -44,3 +44,6 @@ unset __conda_setup
 source /Users/lvanderveekens/.docker/init-zsh.sh || true # Added by Docker Desktop
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# env vars
+export KUBE_EDITOR="/opt/homebrew/bin/nvim"

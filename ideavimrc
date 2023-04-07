@@ -22,7 +22,9 @@ nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 set visualbell
 
-"nmap <leader>d <Action>(CloseEditor)
+" nmap <leader>d <Action>(CloseEditor)
+" CloseContent also works with diff tabs 
+nmap <leader>d <Action>(CloseContent)
 nmap <leader>l <Action>(NextTab)
 nmap <leader>h <Action>(PreviousTab)
 
@@ -31,8 +33,8 @@ map <leader>ff <Action>(GotoFile)
 nmap <C-o> <Action>(Back)
 nmap <C-i> <Action>(Forward)
 
-nnoremap <leader>d "_d
-vnoremap <leader>d "_d
+"nnoremap <leader>d "_d
+"vnoremap <leader>d "_d
 
 vmap K <Action>(MoveLineUp)
 vmap J <Action>(MoveLineDown)

@@ -4,10 +4,6 @@ lua require('telescope-config')
 
 let mapleader=" "
 
-"set runtimepath^=~/.vim runtimepath+=~/.vim/after
-"let &packpath = &runtimepath
-"source ~/.vimrc
-
 colorscheme nightfox
 
 syntax enable
@@ -56,7 +52,7 @@ set incsearch
 " Open a new empty buffer
 "nmap <leader>T :enew<cr>
 " Close the current buffer
-"nmap <leader>d :bd<CR>
+nmap <leader>d :bd<CR>
 " Move to the next buffer
 nmap <leader>l :bnext<CR>
 " Move to the previous buffer
@@ -75,8 +71,8 @@ nnoremap <leader>fo <cmd>Telescope oldfiles<cr>
 " nvim tree 
 nnoremap <C-n> <cmd>NvimTreeToggle<cr>
 
-nnoremap <leader>d "_d
-vnoremap <leader>d "_d
+"nnoremap <leader>d "_d
+"vnoremap <leader>d "_d
 
 " move selected lines up and down
 vnoremap K :m '<-2<CR>gv=gv
