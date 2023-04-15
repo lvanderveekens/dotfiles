@@ -4,7 +4,7 @@ lua require('telescope-config')
 
 let mapleader=" "
 
-colorscheme nightfox
+colorscheme gruvbox
 
 syntax enable
 filetype plugin indent on
@@ -52,7 +52,7 @@ set incsearch
 " Open a new empty buffer
 "nmap <leader>T :enew<cr>
 " Close the current buffer
-nmap <leader>d :bd<CR>
+nmap <leader>d :q<CR>
 " Move to the next buffer
 nmap <leader>l :bnext<CR>
 " Move to the previous buffer

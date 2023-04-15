@@ -24,4 +24,6 @@ return require('packer').startup(function(use)
     use 'folke/tokyonight.nvim'
 
     use 'stephpy/vim-php-cs-fixer'
+
+    use 'morhetz/gruvbox'
 end)
