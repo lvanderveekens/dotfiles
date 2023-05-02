@@ -53,6 +53,7 @@ set incsearch
 "nmap <leader>T :enew<cr>
 " Close the current buffer
 nmap <leader>d :q<CR>
+
 " Move to the next buffer
 nmap <leader>l :bnext<CR>
 " Move to the previous buffer
@@ -77,3 +78,6 @@ nnoremap <C-n> <cmd>NvimTreeToggle<cr>
 " move selected lines up and down
 vnoremap K :m '<-2<CR>gv=gv
 vnoremap J :m '>+1<CR>gv=gv
+
+" replace selection
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>

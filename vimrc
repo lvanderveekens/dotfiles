@@ -11,7 +11,7 @@ set relativenumber
 set laststatus=2
 
 " Enable mouse support
-set mouse=a 
+"set mouse=a 
 
 " Use spaces instead of tabs
 set expandtab
@@ -54,3 +54,6 @@ set clipboard=unnamed
 
 " jump to match while entering search pattern
 set incsearch
+
+" replace selection
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>

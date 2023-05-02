@@ -26,4 +26,7 @@ return require('packer').startup(function(use)
     use 'stephpy/vim-php-cs-fixer'
 
     use 'morhetz/gruvbox'
+
+    use 'nvim-treesitter/nvim-treesitter'
+    use 'udalov/kotlin-vim'
 end)

@@ -47,3 +47,6 @@ source /Users/lvanderveekens/.docker/init-zsh.sh || true # Added by Docker Deskt
 
 # env vars
 export KUBE_EDITOR="/opt/homebrew/bin/nvim"
+#export PATH=/opt/homebrew/bin:$PATH
+
+#export PATH="$PATH:/Applications/IntelliJ IDEA CE.app/Contents/MacOS"

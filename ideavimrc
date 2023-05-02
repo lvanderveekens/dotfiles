@@ -15,7 +15,12 @@ map <leader>fs <Action>(GotoSymbol)
 map <leader>fo <Action>(RecentFiles)
 map <leader>fg <Action>(FindInPath)
 
+map <leader>i <Action>(GotoImplementation)
+
 vmap = :action ReformatCode<CR>
+
+" replace selection
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 " Remove search highlights
 nnoremap <silent> <C-l> :nohl<CR><C-l>
