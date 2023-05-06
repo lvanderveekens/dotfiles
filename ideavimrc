@@ -11,7 +11,7 @@ set hls
 
 map <leader>ff <Action>(GotoFile)
 map <leader>fc <Action>(GotoClass)
-map <leader>fs <Action>(GotoSymbol)
+map <leader>fs <Action>(FileStructurePopup)
 map <leader>fo <Action>(RecentFiles)
 map <leader>fg <Action>(FindInPath)
 
