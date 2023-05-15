@@ -49,10 +49,8 @@ set incsearch
 " =============================== KEYBINDINGS ==================================
 " ==============================================================================
 
-" Open a new empty buffer
-"nmap <leader>T :enew<cr>
-" Close the current buffer
-nmap <leader>d :q<CR>
+nmap <leader>q :q<CR>
+nmap <leader>w :w<CR>
 
 " Move to the next buffer
 nmap <leader>l :bnext<CR>

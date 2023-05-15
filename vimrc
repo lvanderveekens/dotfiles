@@ -37,10 +37,9 @@ set linebreak
 " =============================== KEYBINDINGS ==================================
 " ==============================================================================
 
-" Open a new empty buffer
-nmap <leader>T :enew<cr>
-" Close the current buffer
-nmap <leader>d :bd<CR>
+nmap <leader>q :q<CR>
+nmap <leader>w :w<CR>
+
 " Move to the next buffer
 nmap <leader>l :bnext<CR>
 " Move to the previous buffer
