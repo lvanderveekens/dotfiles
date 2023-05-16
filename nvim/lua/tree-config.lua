@@ -6,6 +6,17 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
 require("nvim-tree").setup({
+    renderer = { 
+        icons = { 
+            show = {
+                file = false,
+                folder = false,
+                folder_arrow = false,
+                git = false,
+                modified = false,
+            }
+        }
+    },
     update_focused_file = {
         enable = true,
         update_root = false,

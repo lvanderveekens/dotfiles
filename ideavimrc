@@ -29,7 +29,7 @@ set visualbell
 
 " nmap <leader>d <Action>(CloseEditor)
 " CloseContent also works with diff tabs 
-nmap <leader>q <Action>(CloseContent)
+nmap <leader>d <Action>(CloseContent)
 nmap <leader>l <Action>(NextTab)
 nmap <leader>h <Action>(PreviousTab)
 

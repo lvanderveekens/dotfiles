@@ -49,8 +49,8 @@ set incsearch
 " =============================== KEYBINDINGS ==================================
 " ==============================================================================
 
-nmap <leader>q :q<CR>
-nmap <leader>w :w<CR>
+nmap <leader>d :q<CR>
+nmap <leader>s :w<CR>
 
 " Move to the next buffer
 nmap <leader>l :bnext<CR>
