@@ -12,6 +12,7 @@ set hls
 map <leader>ff <Action>(GotoFile)
 map <leader>fc <Action>(GotoClass)
 map <leader>fs <Action>(FileStructurePopup)
+map <leader>fS <Action>(GotoSymbol)
 map <leader>fo <Action>(RecentFiles)
 map <leader>fg <Action>(FindInPath)
 
@@ -37,6 +38,10 @@ map <leader>ff <Action>(GotoFile)
 
 nmap <C-o> <Action>(Back)
 nmap <C-i> <Action>(Forward)
+
+" Do not copy selection when pasting
+nmap <leader>p "0p<CR>
+vmap <leader>p "0p<CR>
 
 "nnoremap <leader>d "_d
 "vnoremap <leader>d "_d

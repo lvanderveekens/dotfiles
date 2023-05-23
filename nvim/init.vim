@@ -73,6 +73,10 @@ nnoremap <C-n> <cmd>NvimTreeToggle<cr>
 "nnoremap <leader>d "_d
 "vnoremap <leader>d "_d
 
+" Do not copy selection when pasting
+nmap <leader>p "0p<CR>
+vmap <leader>p "0p<CR>
+
 " move selected lines up and down
 vnoremap K :m '<-2<CR>gv=gv
 vnoremap J :m '>+1<CR>gv=gv

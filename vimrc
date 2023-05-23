@@ -1,3 +1,5 @@
+" NOTE: You would think this file is not needed given my neovim config, but it's still used by VS Code.
+
 let mapleader=" "
 
 syntax enable
@@ -44,6 +46,10 @@ nmap <leader>s :w<CR>
 nmap <leader>l :bnext<CR>
 " Move to the previous buffer
 nmap <leader>h :bprevious<CR>
+
+" Do not copy selection when pasting
+nmap <leader>p "0p<CR>
+vmap <leader>p "0p<CR>
 
 " Remove search highlights
 nnoremap <silent> <C-l> :nohl<CR><C-l>
