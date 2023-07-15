@@ -34,6 +34,8 @@ nmap <leader>d <Action>(CloseContent)
 nmap <leader>l <Action>(NextTab)
 nmap <leader>h <Action>(PreviousTab)
 
+nmap <leader>i <Action>(OptimizeImports)
+
 map <leader>ff <Action>(GotoFile)
 
 nmap <C-o> <Action>(Back)
