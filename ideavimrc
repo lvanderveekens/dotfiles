@@ -16,6 +16,9 @@ map <leader>fS <Action>(GotoSymbol)
 map <leader>fo <Action>(RecentFiles)
 map <leader>fg <Action>(FindInPath)
 
+map <leader>sh <Action>(ShowErrorDescription)
+map <leader>sp <Action>(ParameterInfo)
+
 map gi <Action>(GotoImplementation)
 
 vmap = :action ReformatCode<CR>
