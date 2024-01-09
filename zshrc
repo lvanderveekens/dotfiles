@@ -20,6 +20,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # Personal aliases
 alias b="mvn clean install"
 alias vim="nvim"
+alias hippo-start="b -DskipTests && mvn -P cargo.run -Drepo.path=/tmp/hippo-repo -Dcargo.jvm.args=-Xmx4g"
 
 # kube-ps1
 source "/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh"

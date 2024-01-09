@@ -24,7 +24,7 @@ map gi <Action>(GotoImplementation)
 vmap = :action ReformatCode<CR>
 
 " replace selection
-vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+vnoremap <C-r> "hy:%s/<C-r>h/<C-r>h/gc<left><left><left>
 
 " Remove search highlights
 nnoremap <silent> <C-l> :nohl<CR><C-l>
@@ -38,6 +38,7 @@ nmap <leader>l <Action>(NextTab)
 nmap <leader>h <Action>(PreviousTab)
 
 nmap <leader>i <Action>(OptimizeImports)
+nmap <leader>r <Action>(RenameElement)
 
 map <leader>ff <Action>(GotoFile)
 
