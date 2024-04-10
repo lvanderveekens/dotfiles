@@ -67,6 +67,8 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fo <cmd>Telescope oldfiles<cr>
 
+nmap <leader>m :marks<CR>
+
 " nvim tree 
 nnoremap <C-n> <cmd>NvimTreeToggle<cr>
 

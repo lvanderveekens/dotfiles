@@ -51,3 +51,7 @@ export KUBE_EDITOR="/opt/homebrew/bin/nvim"
 #export PATH=/opt/homebrew/bin:$PATH
 
 #export PATH="$PATH:/Applications/IntelliJ IDEA CE.app/Contents/MacOS"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/lvanderveekens/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

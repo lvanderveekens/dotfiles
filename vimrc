@@ -54,6 +54,8 @@ vmap <leader>p "0p<CR>
 " Remove search highlights
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
+nmap <leader>m :marks<CR>
+
 " to avoid having to copy lines into the + register first (on mac)
 set clipboard=unnamed
 
