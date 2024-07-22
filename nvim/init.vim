@@ -1,6 +1,8 @@
 lua require('packer-config')
 lua require('tree-config')
 lua require('telescope-config')
+lua require('lsp-config')
+lua require('gitsigns-config')
 
 let mapleader=" "
 
@@ -36,7 +38,7 @@ set smartcase
 set backspace=indent,eol,start
 
 " Word wrap without line breaks
-set wrap
+set wrap!
 set linebreak
 
 " to avoid having to copy lines into the + register first (on mac)
@@ -66,6 +68,9 @@ nnoremap <C-p> <cmd>Telescope git_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fo <cmd>Telescope oldfiles<cr>
+
+nnoremap [q :cp<cr>
+nnoremap ]q :cn<cr>
 
 nmap <leader>m :marks<CR>
 

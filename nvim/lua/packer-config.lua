@@ -5,13 +5,18 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     use 'nvim-tree/nvim-tree.lua'
+    use 'nvim-tree/nvim-web-devicons'
 
     use 'mfussenegger/nvim-dap'
     use 'mfussenegger/nvim-jdtls'
     use 'nvim-lua/plenary.nvim'
 
+    use 'neovim/nvim-lspconfig'
+    use 'hrsh7th/nvim-cmp'
+    use 'hrsh7th/cmp-nvim-lsp'
+
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.1',
+        'nvim-telescope/telescope.nvim', tag = '0.1.3',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
 
@@ -24,4 +29,6 @@ return require('packer').startup(function(use)
 
     use 'nvim-treesitter/nvim-treesitter'
     use 'udalov/kotlin-vim'
+
+    use 'lewis6991/gitsigns.nvim'
 end)

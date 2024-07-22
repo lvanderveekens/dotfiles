@@ -21,6 +21,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 alias b="mvn clean install"
 alias vim="nvim"
 alias hippo-start="b -DskipTests && mvn -P cargo.run -Drepo.path=/tmp/hippo-repo -Dcargo.jvm.args=-Xmx4g"
+alias hippo-clean-start="rm -rf /tmp/hippo-repo && hippo-start"
 
 # kube-ps1
 source "/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh"
@@ -55,3 +56,27 @@ export KUBE_EDITOR="/opt/homebrew/bin/nvim"
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/lvanderveekens/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+export PATH=$HOME/.krew/bin:$PATH
+
+kaas () {
+  echo "Fetching any new clusters"
+  for sub in $(az account list -o tsv --query "[].name" 2>/dev/null | grep eep-kaas); do
+    # Get all AKS clusters available in subscription
+    az aks list --subscription "$sub" -o tsv --query "[].[name, resourceGroup]" | while read -r name rsg; do
+      if [[ ! $(kubectl config get-contexts --output="name" | grep "$name") ]]; then
+        az aks get-credentials --subscription "$sub" -n "$name" -g "$rsg" --overwrite-existing
+      fi
+    done
+  done
+
+  echo "Converting kube config with kubelogin"
+  kubelogin convert-kubeconfig -l azurecli
+
+  if [[ "$1" == "purge" ]]; then
+    echo "Purging unreachable clusters"
+    for context in $(kubectl config get-contexts --output="name" | egrep "^(aks|k8s)"); do
+      kubectl get nodes --context "$context" 1>/dev/null 2>&1 || kubectl config delete-context "$context"
+    done
+  fi
+}
