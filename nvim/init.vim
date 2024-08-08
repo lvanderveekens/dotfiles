@@ -3,6 +3,7 @@ lua require('tree-config')
 lua require('telescope-config')
 lua require('lsp-config')
 lua require('gitsigns-config')
+lua require('neogit-config')
 
 let mapleader=" "
 

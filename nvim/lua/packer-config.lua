@@ -7,6 +7,12 @@ return require('packer').startup(function(use)
     use 'nvim-tree/nvim-tree.lua'
     use 'nvim-tree/nvim-web-devicons'
 
+    use {
+        "NeogitOrg/neogit",
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
+
+
     use 'mfussenegger/nvim-dap'
     use 'mfussenegger/nvim-jdtls'
     use 'nvim-lua/plenary.nvim'
