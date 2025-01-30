@@ -21,6 +21,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 alias b="mvn clean install"
 alias vim="nvim"
 alias hippo-start="b -DskipTests && mvn -P cargo.run -Drepo.path=/tmp/hippo-repo -Dcargo.jvm.args=-Xmx4g"
+alias hippo-debug-start="b -DskipTests && mvn -P cargo.run -Dcargo.debug.suspend=y -Drepo.path=/tmp/hippo-repo -Dcargo.jvm.args=-Xmx4g"
 alias hippo-clean-start="rm -rf /tmp/hippo-repo && hippo-start"
 
 # kube-ps1
@@ -80,3 +81,8 @@ kaas () {
     done
   fi
 }
+
+export PATH="/Users/lvanderveekens/.rd/bin:$PATH"
+
+export PATH="$(pyenv root)/shims:$PATH"
+
