@@ -21,8 +21,10 @@ export SDKMAN_DIR="$HOME/.sdkman"
 alias b="mvn clean install"
 alias vim="nvim"
 alias hippo-start="b -DskipTests && mvn -P cargo.run -Drepo.path=/tmp/hippo-repo -Dcargo.jvm.args=-Xmx4g"
-alias hippo-debug-start="b -DskipTests && mvn -P cargo.run -Dcargo.debug.suspend=y -Drepo.path=/tmp/hippo-repo -Dcargo.jvm.args=-Xmx4g"
 alias hippo-clean-start="rm -rf /tmp/hippo-repo && hippo-start"
+alias hippo-debug-start="b -DskipTests && mvn -P cargo.run -Dcargo.debug.suspend=y -Drepo.path=/tmp/hippo-repo -Dcargo.jvm.args=-Xmx4g"
+alias hippo-clean-debug-start="rm -rf /tmp/hippo-repo && hippo-debug-start"
+
 
 # kube-ps1
 source "/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh"
@@ -54,10 +56,6 @@ export KUBE_EDITOR="/opt/homebrew/bin/nvim"
 
 #export PATH="$PATH:/Applications/IntelliJ IDEA CE.app/Contents/MacOS"
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/lvanderveekens/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-
 export PATH=$HOME/.krew/bin:$PATH
 
 kaas () {
@@ -86,3 +84,7 @@ export PATH="/Users/lvanderveekens/.rd/bin:$PATH"
 
 export PATH="$(pyenv root)/shims:$PATH"
 
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/lvanderveekens/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+alias lzd='lazydocker'
