@@ -18,7 +18,7 @@ source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
 
 # CTRL-F 
 __ctrlfsel() {
-  local cmd="${FZF_CTRL_F_COMMAND:-"command find -L $HOME/code -maxdepth 2 \\( -path '*/\\.*' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype 'devtmpfs' -o -fstype 'proc' \\) -prune \
+  local cmd="${FZF_CTRL_F_COMMAND:-"command find -L $HOME/code -maxdepth 1 \\( -path '*/\\.*' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype 'devtmpfs' -o -fstype 'proc' \\) -prune \
     -o -type d -print \
     -o -type l -print 2> /dev/null"}"
   setopt localoptions pipefail no_aliases 2> /dev/null
