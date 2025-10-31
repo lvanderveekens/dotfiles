@@ -32,21 +32,18 @@ PS1='$(kube_ps1)'$PS1
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/lvanderveekens/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('$HOME/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/lvanderveekens/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/lvanderveekens/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "$HOME/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/lvanderveekens/miniconda3/bin:$PATH"
+        export PATH="$HOME/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
-
-source /Users/lvanderveekens/.docker/init-zsh.sh || true # Added by Docker Desktop
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -80,11 +77,10 @@ kaas () {
   fi
 }
 
-export PATH="/Users/lvanderveekens/.rd/bin:$PATH"
-
 export PATH="$(pyenv root)/shims:$PATH"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/lvanderveekens/.rd/bin:$PATH"
+export PATH="$HOME/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+#
 alias lzd='lazydocker'
